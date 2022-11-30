@@ -1,2 +1,6 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<%= simple_form_for(@session) do |f| %>
+  <%= f.input :name, placeholder: "Entrer le nom de votre session" %>
+  <%= f.input :description %>
+  <%= f.input :category, :collection => ["Sport", "Cuisine", "Travail", "Promenade"] %>
+  <%= f.submit %>
+<% end %>

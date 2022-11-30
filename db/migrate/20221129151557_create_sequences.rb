@@ -6,7 +6,7 @@ class CreateSequences < ActiveRecord::Migration[7.0]
       t.string :playlist_source_id
       t.string :playlist_source_name
       t.string :transition
-      t.references :session, null: false, foreign_key: true
+      t.references :music_session, null: false, foreign_key: true
 
       t.timestamps
     end

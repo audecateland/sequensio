@@ -1,4 +1,4 @@
-<%= simple_form_for(@session) do |f| %>
+<%= simple_form_for(@music_session) do |f| %>
   <%= f.input :name, placeholder: "Entrer le nom de votre session" %>
   <%= f.input :description %>
   <%= f.input :category, :collection => ["Sport", "Cuisine", "Travail", "Promenade"] %>

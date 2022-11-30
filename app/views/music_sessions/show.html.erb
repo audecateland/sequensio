@@ -2,15 +2,15 @@
   <div class="card-session">
     <img src=https://picsum.photos/200/300/>
     <div class="card-trip-infos">
-        <h1><%= @session.name %></h1>
+        <h1><%= @music_session.name %></h1>
           <h2>Description</h2>
-            <p><%= @session.description %></p>
+            <p><%= @music_session.description %></p>
           <h2>Catégorie</h2>
-            <p><%= @session.category %></p>
+            <p><%= @music_session.category %></p>
           <h2>Temps</h2>
             <p>32mn</p>
         <button type="button"  class="btn btn-dark">Jouer ma session</button>
-        <button type="button"  class="btn btn-dark"><%= link_to 'Mes sessions', sessions_path(@session) %></button>
+        <button type="button"  class="btn btn-dark"><%= link_to 'Mes sessions', music_sessions_path(@music_session) %></button>
     </div>
   </div>
 </div>

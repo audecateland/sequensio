@@ -1,12 +1,26 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+
+.user {
+color: #fff;
+vertical-align: bottom;
+margin-top: 16px;
+font-family: Barlow, sans-serif;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+nav {
+background-color: #001219;
+height: 120px;
+font-family: Barlow, sans-serif;
+text-decoration: none;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-nav {
+  background-color: #001219;
+}
+
+#logo {
+margin-bottom: 64px;
+}
+
+.nav-item > a {
+  text-decoration: none;
 }

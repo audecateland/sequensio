@@ -1,7 +1,10 @@
 class TracksController < ApplicationController
-  def update
+  def index
+    @tracks = Track.all
   end
 
-  def index
+  def update
+    @tracks = Track.find(params[:id])
+    @track.update(params[:track])
   end
 end

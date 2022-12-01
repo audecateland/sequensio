@@ -1,4 +1,6 @@
 class Sequence < ApplicationRecord
+  SELECT_SEQ = %w[running tempo calme hot]
+  SELECT_SEQ = %w[Ding Dong]
   belongs_to :music_session
   has_many :tracks, dependent: :destroy
   validates :name, presence: true

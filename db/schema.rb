@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_115918) do
 
   create_table "sequences", force: :cascade do |t|
     t.string "name"
-    t.time "duration"
+    t.integer "duration"
     t.string "playlist_source_id"
     t.string "playlist_source_name"
     t.string "transition"
@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_115918) do
   create_table "tracks", force: :cascade do |t|
     t.string "title"
     t.string "artist"
-    t.time "duration_track"
+    t.integer "duration_track"
     t.string "track_source_id"
     t.bigint "sequence_id", null: false
     t.datetime "created_at", null: false

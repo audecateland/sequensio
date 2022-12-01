@@ -5,10 +5,22 @@
         <h1><%= @music_session.name %></h1>
           <h2>Description</h2>
             <p><%= @music_session.description %></p>
+            <br>
           <h2>Catégorie</h2>
             <p><%= @music_session.category %></p>
+            <br>
           <h2>Temps</h2>
             <p>32mn</p>
+            <br>
+          <h2>Sequences</h2>
+            <% @music_session.sequences.each do |sequence|%>
+            <p><strong>Name: </strong><%=  sequence.name %></p>
+            <p><strong>Duration: </strong><%=  sequence.duration %></p>
+            <p><strong>Playlist: </strong><%=  sequence.playlist_source_name %></p>
+            <p><strong>Transition: </strong><%=  sequence.transition %></p>
+            <br>
+            <% end  %>
+
         <button type="button"  class="btn btn-dark">Jouer ma session</button>
         <button type="button"  class="btn btn-dark"><%= link_to 'Mes sessions', music_sessions_path(@music_session) %></button>
     </div>

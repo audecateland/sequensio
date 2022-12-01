@@ -3,9 +3,14 @@ class SequencesController < ApplicationController
   end
 
   def update
+    raise
   end
 
   def shuffle
+    # on retrouve la sequence concernée
+    @sequence = Sequence.find(params[:id])
+    @sequence.shuffle_all_tracks
+    redirect_to music_session_path(@sequence.music_session)
   end
 
   def new

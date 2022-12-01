@@ -37,14 +37,16 @@ users.each do |user|
   [seq_un, seq_deux].each do |attributes|
     new_sequence = new_music_session.sequences.create!(attributes)
     p "created sequence #{new_sequence}"
-    new_sequence.tracks.create!(tracks_seed_a)
+    # new_sequence.tracks.create!(tracks_seed_a)
+    Track.create!(tracks_seed_a)
     p "created sequence #{Track.last}"
   end
 
   [seq_trois, seq_quatre].each do |attributes|
     new_sequence = new_music_session.sequences.create!(attributes)
     p "created sequence #{new_sequence}"
-    new_sequence.tracks.create!(tracks_seed_b)
+    # new_sequence.tracks.create!(tracks_seed_b)
+    Track.create!(tracks_seed_b)
     p "created sequence #{Track.all}"
   end
 end

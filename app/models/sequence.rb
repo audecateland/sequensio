@@ -11,11 +11,11 @@ class Sequence < ApplicationRecord
 
     timecount = 0
     # tant que il ne dépasse pas le temps indiqué par le user
+    # api_tracks = ApiService.new().get_tracks(playlist_source_name: self.playlist_source_name)
     self.tracks.destroy_all
-    while self.duration < timecount
+    while  timecount < self.duration * 60000 || self.tracks.count == Track.all.count
       # ajouter une étape avec la connexion avec l'API (ORDRE DE JOJO)
       # recupérer une liste de tracks dans l'api
-      # api_tracks = ApiService.new().get_tracks(playlist_source_name: self.playlist_source_name)
       ########
       ## Chercher une track au hasard dans la playlist qui diffère de celle qui ont déjà été attribuées à la séquence ##
       ########

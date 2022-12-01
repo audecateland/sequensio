@@ -5,7 +5,7 @@ class CreateTracks < ActiveRecord::Migration[7.0]
       t.string :artist
       t.integer :duration_track
       t.string :track_source_id
-      t.references :sequence, null: false, foreign_key: true
+      t.references :sequence, null: true, foreign_key: true
 
       t.timestamps
     end

@@ -1,2 +1,19 @@
-<h1>Sessions#index</h1>
-<p>Find me in app/views/sessions/index.html.erb</p>
+<div class="container">
+  <div>
+    <h1>Mes sessions enregistrées</h1>
+  </div>
+
+
+  <div class="row">
+    <% @music_sessions.each do |music_session| %>
+    <div class="co-12 col-sm-6 col-md-4 mb-3">
+      <div class="card">
+        <%= music_session.name %>
+        <%= music_session.description %>
+        <%= music_session.category %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+
+</div>

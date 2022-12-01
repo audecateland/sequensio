@@ -9,6 +9,7 @@ class MusicSessionsController < ApplicationController
   end
 
   def index
+    @music_session = MusicSession.all
   end
 
   def show

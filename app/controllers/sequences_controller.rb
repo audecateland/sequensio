@@ -5,9 +5,31 @@ class SequencesController < ApplicationController
   def update
   end
 
-  def create
+  def shuffle
   end
 
-  def shuffle
+  def new
+    # @playlists = ApiService.new().playlists
+    @sequence = Sequence.new
+    @music_session = MusicSession.find(params[:music_session_id])
+  end
+
+  def create
+    @sequence = Sequence.new(sequence_params)
+    @music_session = MusicSession.find(params[:music_session_id])
+    @sequence.music_session = @music_session
+    @sequence.playlist_source_id = 1 # à remplir avec l'api
+    if @sequence.save
+      redirect_to music_session_path(@music_session)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def sequence_params
+    params.require(:sequence).permit(:name, :duration,
+    :playlist_source_name, :transition)
   end
 end

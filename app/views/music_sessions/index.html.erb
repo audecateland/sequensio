@@ -1,2 +1,12 @@
-<h1>Sessions#index</h1>
-<p>Find me in app/views/sessions/index.html.erb</p>
+<div class="container"></div>
+  <h1>Mes sessions</h1>
+    <ul>
+      <% @music_sessions.each do |music_session| %>
+    <li><%= link_to "#{music_session.name}", music_session %>
+      <%= link_to "Supprimer", music_session_path(music_session), data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer cette session musicale?"}%>
+      <%= link_to 'Editer', edit_music_session_path(music_session)%>
+    </li>
+      <% end %>
+    </ul>
+  <button type="button"  class="btn btn-dark"><%= link_to 'Créer une session', new_music_session_path(@music_session) %></button>
+</div>

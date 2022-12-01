@@ -8,8 +8,8 @@
 p 'cleaning db.....'
 
 Track.destroy_all
-MusicSession.destroy_all
 Sequence.destroy_all
+MusicSession.destroy_all
 User.destroy_all
 
 #users

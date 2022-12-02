@@ -1,10 +1,10 @@
-<h1>Create a new sequence</h1>
-<p>Choose name, duration, source, time</p>
+<h1>Créer une nouvelle séquence</h1>
 
 <%= simple_form_for [@music_session, @sequence] do |f| %>
-  <%= f.input :name, placeholder: "Entrer le nom de votre sequence" %>
-  <%= f.input :duration %>
-  <%= f.input :playlist_source_name, collection: Sequence::SELECT_SEQ %>
+  <%= f.input :name, :label => "Nom", placeholder: "Entrer le nom de votre sequence" %>
+  <%= f.input :duration, :label => "Durée" %>
+  <%= f.input :playlist_source_name, :label => "Playlist", collection: Sequence::SELECT_SEQ %>
   <%= f.input :transition, collection: Sequence::SELECT_TRANS %>
-  <%= f.submit %>
+  <%= f.submit "Créer la séquence" %>
 <% end %>
+<button type="button" class="btn btn-dark"><%= link_to 'Retour', music_session_path(@music_session) %></button>

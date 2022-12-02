@@ -2,23 +2,32 @@
   <div class="card-session">
     <img src=https://picsum.photos/200/300/>
     <div class="card-trip-infos">
-        <h1><%= @music_session.name %></h1>
+            <br>
+        <h1>Session <%= @music_session.name %></h1>
+            <br>
           <h2>Description</h2>
             <p><%= @music_session.description %></p>
             <br>
           <h2>Catégorie</h2>
             <p><%= @music_session.category %></p>
             <br>
-          <h2>Temps</h2>
-            <p>32mn</p>
+          <h2>Durée</h2>
+            <% @total_time = 0  %>
+            <% @music_session.sequences.each do |sequence| %>
+              <% @total_time += sequence.duration %>
+            <% end %>
+            <p><%= @total_time %> minutes</p>
             <br>
-          <h2>Sequences</h2>
+            <% @number_sequence = 0  %>
             <% @music_session.sequences.each do |sequence|%>
-              <p><strong>Name: </strong><%=  sequence.name %></p>
-              <p><strong>Duration: </strong><%=  sequence.duration %></p>
-              <p><strong>Playlist: </strong><%=  sequence.playlist_source_name %></p>
-              <p><strong>Tracks: </strong>
-                <% sequence.tracks.each do |track| %>
+
+            <% @number_sequence += 1  %>
+            <h2>Séquence <%= @number_sequence %></h2>
+            <p><strong>Nom: </strong><%=  sequence.name %></p>
+            <p><strong>Durée: </strong><%=  sequence.duration %></p>
+            <p><strong>Playlist: </strong><%=  sequence.playlist_source_name %></p>
+            <div>
+            <% sequence.tracks.each do |track| %>
                   <span><%= track.title %></span>
                 <% end %>
               </p>
@@ -26,13 +35,13 @@
                 <% @music_session.tracks.each do |track| %>
                   <li><%= track.title %></li>
                 <% end %>
-                <!-- Recupérer l'id d'une playlist -->
-                <!-- Afficher l'ensemble des tracks rattachés à cette playlist -->
-                <!-- Nous pouvons shuffle un morceau -->
-                <!-- Ou l'ensemble des morceaux -->
-              </div>
-              <p><strong>Transition: </strong><%= sequence.transition %></p>
-              <br>
+              <!-- Recupérer l'id d'une playlist -->
+              <!-- Afficher l'ensemble des tracks rattachés à cette playlist -->
+              <!-- Nous pouvons shuffle un morceau -->
+              <!-- Ou l'ensemble des morceaux -->
+            </div>
+            <p><strong>Transition: </strong><%=  sequence.transition %></p>
+            <br>
             <% end %>
             <ul>
               <% @music_session.tracks.each do |track| %>
@@ -44,6 +53,7 @@
 
         <button type="button"  class="btn btn-dark">Jouer ma session</button>
         <button type="button"  class="btn btn-dark"><%= link_to 'Mes sessions', music_sessions_path(@music_session) %></button>
+        <button type="button"  class="btn btn-dark"><%= link_to 'Ajouter une séquence', new_music_session_sequence_path(@music_session) %></button>
     </div>
   </div>
 </div>

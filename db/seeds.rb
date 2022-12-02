@@ -25,9 +25,9 @@ seq_trois = { name: 'trois', duration: '6', playlist_source_id: 'c', music_sessi
 seq_quatre = { name: 'quatre', duration: '8', playlist_source_id: 'd', music_session_id: 4 }
 
 # tracks
-tracks_seed_a = [{ duration_track: 180000, title: 'sur la route', artist: 'De palmas'  }, { duration_track: 180000, title: 'je roule', artist: 'Soprano' }, { duration_track: 180000, title: 'Les lacs du Connemara', artist: 'Sardou Michou' }, { duration_track: 180000, title: 'My heart will go on', artist: 'Celine' }, { duration_track: 180000, title: 'La fièvre', artist: 'NTM' }]
+tracks_seed_a = [{ duration_track: 180000, title: 'sur la route', artist: 'De palmas', track_source_id: 1  }, { duration_track: 180000, title: 'je roule', artist: 'Soprano', track_source_id: 2 }, { duration_track: 180000, title: 'Les lacs du Connemara', artist: 'Sardou Michou', track_source_id: 3 }, { duration_track: 180000, title: 'My heart will go on', artist: 'Celine', track_source_id: 4 }, { duration_track: 180000, title: 'La fièvre', artist: 'NTM', track_source_id: 5 }]
 
-tracks_seed_b = [{ duration_track: 180000, title: 'toxic', artist: 'Britney baby' }, { duration_track: 180000, title: 'cette année là', artist: 'Cloclo' }, { duration_track: 180000, title:'Champs Elysee', artist: 'Joe Dassin' }, { duration_track: 180000, title:'La boulette', artist: 'Diams' }, { duration_track: 180000, title:'Stach Stach', artist: 'Anthologigi' }]
+tracks_seed_b = [{ duration_track: 180000, title: 'toxic', artist: 'Britney baby', track_source_id: 6 }, { duration_track: 180000, title: 'cette année là', artist: 'Cloclo', track_source_id: 7 }, { duration_track: 180000, title:'Champs Elysee', artist: 'Joe Dassin', track_source_id: 8 }, { duration_track: 180000, title:'La boulette', artist: 'Diams', track_source_id: 9 }, { duration_track: 180000, title:'Stach Stach', artist: 'Anthologigi', track_source_id: 10 }]
 
 users.each do |user|
   user = User.create!(password: 'azerty', email: "#{user}@mail.fr")
@@ -52,7 +52,7 @@ users.each do |user|
 end
 puts "Seed finished!"
 
-
+Track.all.each { |track| track.update(track_source_id: track.id)}
 # aude = User.create!(password: 'azerty', email: 'aude@mail.fr')
 # mat = User.create!(password: 'azerty', email: 'mat@mail.fr')
 # pedro = User.create!(password: 'azerty', email: 'pedro@mail.fr')

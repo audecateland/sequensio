@@ -13,7 +13,7 @@ class Sequence < ApplicationRecord
     # tant que il ne dépasse pas le temps indiqué par le user
     # api_tracks = ApiService.new().get_tracks(playlist_source_name: self.playlist_source_name)
     self.tracks.destroy_all
-    while timecount < self.duration * 60000 && self.tracks.count != Track.all.count
+    while timecount < (self.duration * 60000) && self.tracks.count != Track.all.count
       # p self.tracks.count
       # p Track.all.count
       # ajouter une étape avec la connexion avec l'API (ORDRE DE JOJO)
@@ -25,8 +25,10 @@ class Sequence < ApplicationRecord
       track = Track.where.not(track_source_id: sequence_tracks_ids).sample
       track.sequence = self
       track.save
+      self.tracks << track
       # timecount += track.duration_track
       timecount = self.tracks.map(&:duration_track).sum
+      p "#{timecount} : #{self.duration * 60000}"
     end
     # on va chercher une track et on initialise le timecount
     # tant qu'il est inférieur au temps indiqué par user, il va chercher d'autres tracks

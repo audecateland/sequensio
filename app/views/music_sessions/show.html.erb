@@ -26,7 +26,7 @@
             <p><strong>Durée: </strong><%=  sequence.duration %></p>
             <p><strong>Playlist: </strong><%=  sequence.playlist_source_name %></p>
             <div>
-                <% @music_session.tracks.each do |track| %>
+                <% sequence.tracks.each do |track| %>
                   <p><strong><%= track.title %></strong>: <%= track.artist %></p>
                 <% end %>
             </div>

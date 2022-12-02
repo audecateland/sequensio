@@ -20,37 +20,19 @@
             <br>
             <% @number_sequence = 0  %>
             <% @music_session.sequences.each do |sequence|%>
-
             <% @number_sequence += 1  %>
             <h2>Séquence <%= @number_sequence %></h2>
             <p><strong>Nom: </strong><%=  sequence.name %></p>
             <p><strong>Durée: </strong><%=  sequence.duration %></p>
             <p><strong>Playlist: </strong><%=  sequence.playlist_source_name %></p>
             <div>
-            <% sequence.tracks.each do |track| %>
-                  <span><%= track.title %></span>
-                <% end %>
-              </p>
-              <div>
                 <% @music_session.tracks.each do |track| %>
-                  <li><%= track.title %></li>
+                  <p><strong><%= track.title %></strong>: <%= track.artist %></p>
                 <% end %>
-              <!-- Recupérer l'id d'une playlist -->
-              <!-- Afficher l'ensemble des tracks rattachés à cette playlist -->
-              <!-- Nous pouvons shuffle un morceau -->
-              <!-- Ou l'ensemble des morceaux -->
             </div>
             <p><strong>Transition: </strong><%=  sequence.transition %></p>
             <br>
             <% end %>
-            <ul>
-              <% @music_session.tracks.each do |track| %>
-                <li><%= track.title %></li>
-              <% end %>
-            </ul>
-
-
-
         <button type="button"  class="btn btn-dark">Jouer ma session</button>
         <button type="button"  class="btn btn-dark"><%= link_to 'Mes sessions', music_sessions_path(@music_session) %></button>
         <button type="button"  class="btn btn-dark"><%= link_to 'Ajouter une séquence', new_music_session_sequence_path(@music_session) %></button>

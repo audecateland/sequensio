@@ -25,9 +25,9 @@ seq_trois = { name: 'trois', duration: '6', playlist_source_id: 'c', music_sessi
 seq_quatre = { name: 'quatre', duration: '8', playlist_source_id: 'd', music_session_id: 4 }
 
 # tracks
-tracks_seed_a = [{ duration_track: 3687, title: 'sur la route', artist: 'De palmas'  }, { duration_track: 3687, title: 'je roule', artist: 'Soprano' }, { duration_track: 3687, title: 'Les lacs du Connemara', artist: 'Sardou Michou' }, { duration_track: 3687, title: 'My heart will go on', artist: 'Celine' }, { duration_track: 3687, title: 'La fièvre', artist: 'NTM' }]
+tracks_seed_a = [{ duration_track: 180000, title: 'sur la route', artist: 'De palmas'  }, { duration_track: 180000, title: 'je roule', artist: 'Soprano' }, { duration_track: 180000, title: 'Les lacs du Connemara', artist: 'Sardou Michou' }, { duration_track: 180000, title: 'My heart will go on', artist: 'Celine' }, { duration_track: 180000, title: 'La fièvre', artist: 'NTM' }]
 
-tracks_seed_b = [{ duration_track: 3687, title: 'toxic', artist: 'Britney baby' }, { duration_track: 3687, title: 'cette année là', artist: 'Cloclo' }, { duration_track: 3687, title:'Champs Elysee', artist: 'Joe Dassin' }, { duration_track: 3687, title:'La boulette', artist: 'Diams' }, { duration_track: 3687, title:'Stach Stach', artist: 'Anthologigi' }]
+tracks_seed_b = [{ duration_track: 180000, title: 'toxic', artist: 'Britney baby' }, { duration_track: 180000, title: 'cette année là', artist: 'Cloclo' }, { duration_track: 180000, title:'Champs Elysee', artist: 'Joe Dassin' }, { duration_track: 180000, title:'La boulette', artist: 'Diams' }, { duration_track: 180000, title:'Stach Stach', artist: 'Anthologigi' }]
 
 users.each do |user|
   user = User.create!(password: 'azerty', email: "#{user}@mail.fr")

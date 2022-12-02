@@ -7,6 +7,7 @@
         <p class="session-description"><%= @music_session.description %></p>
         <p><span class="tag-category">#<%= @music_session.category %></span></p>
         <div class="duree-total-session">
+        <!-- Deplacer cette méthode Total Time dans le model afin de pouvoir l'appeler partout -->
           <% @total_time = 0 %>
           <% @music_session.sequences.each do |sequence| %>
             <% @total_time += sequence.duration %>

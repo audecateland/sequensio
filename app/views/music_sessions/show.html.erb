@@ -1,43 +1,42 @@
 <div class="container">
-  <div class="card-session">
-    <img src=https://picsum.photos/200/300/>
-    <div class="card-trip-infos">
-            <br>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <p class="titre-page">CREER UNE SESSION</p>
+      <div class="card-description">
         <h1>Session <%= @music_session.name %></h1>
-            <br>
-          <h2>Description</h2>
-            <p><%= @music_session.description %></p>
-            <br>
-          <h2>Catégorie</h2>
-            <p><%= @music_session.category %></p>
-            <br>
-          <h2>Durée</h2>
-            <% @total_time = 0  %>
-            <% @music_session.sequences.each do |sequence| %>
-              <% @total_time += sequence.duration %>
-            <% end %>
-            <p><%= @total_time %> minutes</p>
-            <br>
-            <% @number_sequence = 0  %>
-            <% @music_session.sequences.each do |sequence|%>
-            <% @number_sequence += 1  %>
-            <h2>Séquence <%= @number_sequence %></h2>
-            <p><strong>Nom: </strong><%=  sequence.name %></p>
-            <p><strong>Durée: </strong><%=  sequence.duration %></p>
-            <p><strong>Playlist: </strong><%=  sequence.playlist_source_name %></p>
+        <p class="session-description"><%= @music_session.description %></p>
+        <p><span class="tag-category">#<%= @music_session.category %></span></p>
+        <div class="duree-total-session">
+          <% @total_time = 0 %>
+          <% @music_session.sequences.each do |sequence| %>
+            <% @total_time += sequence.duration %>
+          <% end %>
+          <p><%= image_tag 'duree_session.png', class: :sequence_icons %><%= "#{@total_time} min" if @total_time > 0 %></p>
+        </div>
+      </div>
+      <div class="sequence-content">
+        <% @number_sequence = 0 %>
+        <% @music_session.sequences.each do |sequence| %>
+        <div class="sequence-description">
+          <% @number_sequence += 1  %>
+          <h2>Séquence <%= @number_sequence %></h2>
+          <p><%= image_tag 'titre_sequence.png', class: :sequence_icons %><%= sequence.name %></p>
+          <p><%= image_tag 'duree_sequence.png', class: :sequence_icons %> <%= sequence.duration %> min</p>
+          <p><%= image_tag 'playlist_sequence.png', class: :sequence_icons %> <%= sequence.playlist_source_name %></p>
             <div>
               <!-- Recupérer l'id d'une playlist -->
               <!-- Afficher l'ensemble des tracks rattachés à cette playlist -->
               <!-- Nous pouvons shuffle un morceau -->
               <!-- Ou l'ensemble des morceaux -->
             </div>
-            <p><strong>Transition: </strong><%=  sequence.transition %></p>
-            <br>
-            <% end %>
+          <p><%= image_tag 'transition_sequence.png', class: :sequence_icons %> <%= sequence.transition %></p>
+        </div>
+        <% end %>
 
-        <button type="button"  class="btn btn-dark">Jouer ma session</button>
-        <button type="button"  class="btn btn-dark"><%= link_to 'Mes sessions', music_sessions_path(@music_session) %></button>
-        <button type="button"  class="btn btn-dark"><%= link_to 'Ajouter une séquence', new_music_session_sequence_path(@music_session) %></button>
+        <button type="button" class="btn btn-dark">Jouer ma session</button>
+        <button type="button" class="btn btn-dark"><%= link_to 'Mes sessions', music_sessions_path(@music_session) %></button>
+        <button type="button" class="btn btn-dark"><%= link_to 'Ajouter une séquence', new_music_session_sequence_path(@music_session) %></button>
+      </div>
     </div>
   </div>
 </div>

@@ -1,10 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
     <div class="user">
-    <% if user_signed_in? do %>
+    <% if user_signed_in? %>
       <p><%= current_user.email %></p>
     <% end %>
-      <% end %>
     </div>
       <a class="navbar-brand" href="#">
       <div id="logo"> <%= image_tag 'logo-sequensio.png' %>

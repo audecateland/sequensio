@@ -1,7 +1,44 @@
 .accordion-cards {
-  background: rgba(217, 217, 217, 0.1);
+  background: #FBFBFB;
   border-bottom: 2px solid #EE9B00;
   border-radius: 8px;
-  padding: 25px 20px;
   margin-bottom: 4px;
+}
+
+.accordion-header {
+  padding: 25px 0;
+  position: relative;
+  h2 {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
+    color: #001219;
+  }
+}
+
+.accordions-content {
+  padding: 20px;
+  background: #E9D8A6;
+  border-radius: 0px 0px 8px 8px;
+  p {
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    color: #001219;
+  }
+  a {
+    text-decoration: none;
+    color: #001219;
+  }
 }

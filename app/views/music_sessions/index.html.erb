@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-12">
       <h1>Mes sessions</h1>
+      <!--
       <% @music_sessions.each do |music_session| %>
         <div class="accordion-cards">
             <%= link_to "#{music_session.name}", music_session %>
@@ -10,39 +11,36 @@
             <%= link_to "Supprimer", music_session_path(music_session), data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer cette session musicale?"}%>
             <%= link_to 'Editer', edit_music_session_path(music_session) %>
         </div>
-      <% end %>
+      <% end %> -->
 
-      <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div id="accordionFlushSession">
+        <% @music_sessions.each do |music_session| %>
         <div class="accordion-cards">
-          <h2 class="accordion-header" id="flush-headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-              Accordion Item #1
-            </button>
-          </h2>
-          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+          <div class="accordion-header" id="flush-heading-<%= "#{music_session.chiffre + 1}" %>">
+            <div class="container">
+              <div class="row">
+                <div class="col-1 m-0 p-0 my-auto">
+                  <%= image_tag 'lecture_session.png' %>
+                </div>
+                <div class="col-10">
+                  <h2><%= link_to "#{music_session.name}", music_session %></h2>
+                  <p><span class="tag-category">#<%= music_session.category %></span> <%= image_tag 'duree_session.png', class: :sequence_icons %><span class=""><b>70 min</b></span></p>
+                </div>
+                <div class="col-1 m-0 p-0 my-auto" data-bs-toggle="collapse" data-bs-target="#flush-collapse-<%= "#{music_session.chiffre + 1}" %>" aria-expanded="false" aria-controls="flush-collapse-<%= "#{music_session.chiffre + 1}" %>">
+                  <%= image_tag 'accordion_session.png' %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="flush-collapse-<%= "#{music_session.chiffre + 1}" %>" class="accordion-collapse collapse" aria-labelledby="flush-heading-<%= "#{music_session.chiffre + 1}" %>" data-bs-parent="#accordionFlushSession">
+            <div class="accordions-content">
+              <p><%= music_session.description %></p>
+              <%= image_tag 'poubelle.svg', class: :sequence_icons, style: "margin-top: -5px;" %><%= link_to "Supprimer", music_session_path(music_session), data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer cette session musicale?"}%>
+              <%= image_tag 'crayon.svg', class: :sequence_icons, style: "margin-top: -5px;" %><%= link_to 'Editer', edit_music_session_path(music_session) %>
+            </div>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-              Accordion Item #2
-            </button>
-          </h2>
-          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-              Accordion Item #3
-            </button>
-          </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-          </div>
-        </div>
+        <% end %>
       </div>
 
       <button type="button" class="btn btn-dark"><%= link_to 'Créer une session', new_music_session_path(@music_session) %></button>

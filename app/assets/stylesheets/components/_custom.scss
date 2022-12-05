@@ -1,7 +1,17 @@
 .titre-page {
   font-size: 22px;
+  margin-top: 22px;
   font-family: "barlow", sans-serif;
   font-weight: bold;
   color: #001219;
   text-transform: uppercase;
+}
+
+.btn_next {
+  position: absolute;
+  left: 37%;
+  margin: 0 auto;
+  border: none;
+  width: 70px;
+  height: 70px;
 }

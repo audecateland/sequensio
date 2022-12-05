@@ -32,8 +32,13 @@
           <p><%= image_tag 'transition_sequence.png', class: :sequence_icons %> <%= sequence.transition %></p>
         </div>
         <% end %>
-
-        <button type="button" class="btn btn-dark">Jouer ma session</button>
+        <div>
+          <% if @number_sequence > 0 %>
+            <button type="button" class="btn btn-dark">Jouer ma session</button>
+          <% else %>
+            <button type="button" class="d-none btn btn-dark">Jouer ma session</button>
+          <% end %>
+        </div>
         <button type="button" class="btn btn-dark"><%= link_to 'Mes sessions', music_sessions_path(@music_session) %></button>
         <button type="button" class="btn btn-dark"><%= link_to 'Ajouter une séquence', new_music_session_sequence_path(@music_session) %></button>
       </div>

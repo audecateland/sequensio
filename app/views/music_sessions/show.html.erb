@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row">
     <div class="col-12">
       <p class="titre-page">CREER UNE SESSION</p>
       <div class="card-description">
@@ -15,27 +15,59 @@
           <p><%= image_tag 'duree_session.png', class: :sequence_icons %><%= "#{@total_time} min" if @total_time > 0 %></p>
         </div>
       </div>
+    </div>
+  </div>
+  <!-- DEBUT : Faire apparaitre si aucune sequence créée -->
+  <div class="row">
+    <div class="col-12">
+      <div class="sequence-header">
+        <h2>Créer une ou plusieurs séquences</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non magna ex. Nullam tempor vulputate sem, sit amet dignissim neque dictum ac. Donec elementum finibus sapien a scelerisque. Nulla consectetur enim ut augue euismod, ut egestas libero gravida. Curabitur ex lorem, hendrerit at ante eget, laoreet fermentum diam.</p>
+      </div>
+    </div>
+  </div>
+  <!-- FIN  -->
+  <!-- DEBUT : Séquence -->
+  <div class="row">
+    <div class="col-12">
       <div class="sequence-content">
         <% @number_sequence = 0 %>
         <% @music_session.sequences.each do |sequence| %>
-        <div class="sequence-description">
-          <% @number_sequence += 1  %>
-          <h2>Séquence <%= @number_sequence %></h2>
-          <p><%= image_tag 'titre_sequence.png', class: :sequence_icons %><%= sequence.name %></p>
-          <p><%= image_tag 'duree_sequence.png', class: :sequence_icons %> <%= sequence.duration %> min</p>
-          <p><%= image_tag 'playlist_sequence.png', class: :sequence_icons %> <%= sequence.playlist_source_name %></p>
-            <div>
-                <% sequence.tracks.each do |track| %>
-                  <p><strong><%= track.title %></strong>: <%= track.artist %></p>
-                <% end %>
+          <div class="sequence-description">
+            <% @number_sequence += 1  %>
+            <h2>Séquence <%= @number_sequence %></h2>
+            <p><%= image_tag 'titre_sequence.png', class: :sequence_icons %><%= sequence.name %></p>
+            <p><%= image_tag 'duree_sequence.png', class: :sequence_icons %> <%= sequence.duration %> min</p>
+            <p><%= image_tag 'playlist_sequence.png', class: :sequence_icons %> <%= sequence.playlist_source_name %></p>
+              <div>
+                  <% sequence.tracks.each do |track| %>
+                    <p><strong><%= track.title %></strong>: <%= track.artist %></p>
+                  <% end %>
+              </div>
+            <p><%= image_tag 'transition_sequence.png', class: :sequence_icons %> <%= sequence.transition %></p>
+            <div class="buttons-navigation">
+              <%= simple_form_for [@music_session, sequence] do |f| %>
+                <%= f.submit "", class: :btn_modifier_sequence, style: "background:url(#{image_path 'cta_modifier_sequence.svg'})" %>
+                <%= f.submit "", class: :btn_supprimer_sequence, style: "background:url(#{image_path 'cta_supprimer_sequence.svg'})" %>
+              <% end %>
             </div>
-          <p><%= image_tag 'transition_sequence.png', class: :sequence_icons %> <%= sequence.transition %></p>
-        </div>
+          </div>
         <% end %>
-
+      </div>
+    </div>
+  </div>
+  <!-- FIN : Séquence -->
+  <div class="row">
+    <div class="col-12">
+      <div class="sequence-footer">
+        <%= link_to '', new_music_session_sequence_path(@music_session), class: :btn_ajouter, style: "background:url(#{image_path 'cta_ajouter.svg'})" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+        <%= link_to 'Mes sessions', music_sessions_path(@music_session), class: :btn_home_black, style: "text-decoration:none;" %>
         <button type="button" class="btn btn-dark">Jouer ma session</button>
-        <button type="button" class="btn btn-dark"><%= link_to 'Mes sessions', music_sessions_path(@music_session) %></button>
-        <button type="button" class="btn btn-dark"><%= link_to 'Ajouter une séquence', new_music_session_sequence_path(@music_session) %></button>
       </div>
     </div>
   </div>

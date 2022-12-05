@@ -23,6 +23,7 @@ class MusicSessionsController < ApplicationController
 
   def edit
     @music_session = MusicSession.find(params[:id])
+    # @new_music_session = MusicSession.copy(music_session_params)
   end
 
   def update
@@ -38,6 +39,15 @@ class MusicSessionsController < ApplicationController
   end
 
   def duplicate
+    @old_music_session = MusicSession.find(params[:id])
+    @new_music_session = @old_music_session.dup
+    @new_music_session.name = "#{@old_music_session.name} - duplicate"
+    @old_music_session.sequences.each do |sequence|
+      s = sequence.dup
+      s.update(music_session: @new_music_session)
+    end
+    @new_music_session.save
+    redirect_to edit_music_session_path(@new_music_session)
   end
 
   private

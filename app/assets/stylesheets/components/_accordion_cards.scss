@@ -42,3 +42,22 @@
     color: #001219;
   }
 }
+
+.rotation_icons {
+  transition-duration: 0.2s, 0.2s;
+  color: #999999;
+}
+
+.rotation_icons:hover {
+  color: #001219;
+}
+
+.rotation_icons:active {
+  color: #001219;
+  transform: rotate(45deg);
+}
+
+.rotation_icons:focus {
+  color: #001219;
+  transform: rotate(45deg);
+}

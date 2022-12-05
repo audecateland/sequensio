@@ -1,6 +1,19 @@
-<%= simple_form_for(@music_session) do |f| %>
-  <%= f.input :name, placeholder: "Entrer le nom de votre session" %>
-  <%= f.input :description %>
-  <%= f.input :category, :collection => ["Sport", "Cuisine", "Travail", "Promenade"] %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mb-1">
+      <div class="mb-1">
+        <h1 class="titre-page">Créer une session</h1>
+        <p>Donec fermentum, nisl sit amet condimentum rutrum, mauris quam scelerisque lacus, a porttitor quam lectus sed velit.</p>
+      </div>
+      <div class="form-content">
+        <%= simple_form_for(@music_session) do |f| %>
+          <%= f.input :name, label: "Titre", placeholder: "Entrer le nom de votre session", label_html: { class: 'my_input_label' }, input_html: { class: 'my_input focus-only' } %>
+          <%= f.input :description, label: "Description", placeholder: "Donner une description", label_html: { class: 'my_input_label' }, input_html: { class: 'my_input focus-only' } %>
+          <%= f.input :category, label: "Catégorie", :collection => ["Sport", "Cuisine", "Travail", "Promenade"], as: :select, label_html: { class: 'my_input_label' }, input_html: { class: 'my_select_input focus-only' } %>
+
+          <%= f.submit "", class: :btn_next, style: "background:url(#{image_path 'cta_next.svg'})" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

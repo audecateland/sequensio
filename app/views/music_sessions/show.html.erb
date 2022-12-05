@@ -61,18 +61,17 @@
     <div class="col-12">
       <div class="sequence-footer">
         <%= link_to '', new_music_session_sequence_path(@music_session), class: :btn_ajouter, style: "background:url(#{image_path 'cta_ajouter.svg'})" %>
-        <% if @number_sequence > 0 %>
-            <button type="button" class="btn btn-dark">Jouer ma session</button>
-          <% else %>
-            <button type="button" class="d-none btn btn-dark">Jouer ma session</button>
-         <% end %>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-        <%= link_to 'Mes sessions', music_sessions_path(@music_session), class: :btn_home_black, style: "text-decoration:none;" %>
-        <button type="button" class="btn btn-dark">Jouer ma session</button>
+      <% if @number_sequence > 0 %>
+          <button type="button" class="btn btn-dark">Jouer ma session</button>
+      <% else %>
+          <button type="button" class="d-none btn btn-dark">Jouer ma session</button>
+      <% end %>
+      <%= link_to 'Mes sessions', music_sessions_path(@music_session), class: :btn_home_black, style: "text-decoration:none;" %>
     </div>
   </div>
 </div>

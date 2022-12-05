@@ -1,0 +1,88 @@
+.form-content {
+  position: relative;
+  padding: 30px 20px;
+  margin-bottom: 30px;
+  background: #FFFFFF;
+  border: 1px solid #FAFAFA;
+  box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.my_input_label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #001219;
+  margin-left: 8px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.my_input {
+  width: 100% !important;
+  padding: 12px 16px !important;
+  border: 1px solid #333333 !important;
+  border-radius: 12px !important;
+}
+
+.focus-only:focus {
+  outline: 3px solid #E9D8A6 !important;
+  opacity: 0.3 !important;
+  transition-duration: all 0.3s ease-out !important;
+}
+
+.my_input::placeholder {
+  font-family: "barlow", sans-serif !important;
+  font-size: 18px !important;
+  line-height: 22px !important;
+  font-weight: 300 !important;
+  color: #C5C5C5 !important;
+  opacity: 1 !important;
+}
+
+.my_input:focus {
+  font-family: "barlow", sans-serif !important;
+  font-size: 18px !important;
+  line-height: 22px !important;
+  font-weight: 300 !important;
+  color: #001219 !important;
+  opacity: 1 !important;
+}
+
+.my_input:active {
+  font-family: "barlow", sans-serif !important;
+  font-size: 18px !important;
+  line-height: 22px !important;
+  font-weight: 300 !important;
+  color: #001219 !important;
+  opacity: 1 !important;
+}
+
+.my_select_input {
+  width: 100% !important;
+  padding: 12px 16px !important;
+  border: 1px solid #333333 !important;
+  border-radius: 12px !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("../../images/dropdown.svg") 96% / 15% no-repeat #001219;
+}
+
+.my_select_input::-ms-expand {
+  display: none;
+}
+
+.my_select_input:focus {
+  outline: 3px solid #E9D8A6 !important;
+  opacity: 0.3 !important;
+  transition-duration: all 0.3s ease-out !important;
+}
+
+.my_select_input:active {
+  font-family: "barlow", sans-serif !important;
+  font-size: 18px !important;
+  line-height: 22px !important;
+  font-weight: 300 !important;
+  color: #001219 !important;
+  opacity: 1 !important;
+}

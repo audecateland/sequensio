@@ -1,15 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
     <div class="user">
-    
-    <% if user_signed_in? %>
-      <p><%= current_user.email %></p>
-    <% end %>
-
+      <% if user_signed_in? %>
+        <p><%= current_user.email %></p>
+      <% end %>
     </div>
       <a class="navbar-brand" href="#">
-      <div id="logo"> <%= image_tag 'logo-sequensio.png' %>
-      </div>
+        <div id="logo"> <%= image_tag 'logo-sequensio.png' %>
+        </div>
       </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -17,13 +15,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link"> <%= link_to 'Accueil Sequensio', music_sessions_path(@music_session) %> </a>
-          </li>
+          <%= link_to 'Accueil Sequensio', music_sessions_path(@music_session) %>
+        </li>
         <li class="nav-item">
           <a class="nav-link">Mes sessions préférées</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"> Me déconnecter </a>
+          <%= button_to "Déconnexion", destroy_user_session_path(), method: :delete %>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

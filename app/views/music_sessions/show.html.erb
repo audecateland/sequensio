@@ -7,6 +7,7 @@
         <p class="session-description"><%= @music_session.description %></p>
         <p><span class="tag-category">#<%= @music_session.category %></span></p>
         <div class="duree-total-session">
+        <!-- Deplacer cette méthode Total Time dans le model afin de pouvoir l'appeler partout -->
           <% @total_time = 0 %>
           <% @music_session.sequences.each do |sequence| %>
             <% @total_time += sequence.duration %>
@@ -24,10 +25,9 @@
           <p><%= image_tag 'duree_sequence.png', class: :sequence_icons %> <%= sequence.duration %> min</p>
           <p><%= image_tag 'playlist_sequence.png', class: :sequence_icons %> <%= sequence.playlist_source_name %></p>
             <div>
-              <!-- Recupérer l'id d'une playlist -->
-              <!-- Afficher l'ensemble des tracks rattachés à cette playlist -->
-              <!-- Nous pouvons shuffle un morceau -->
-              <!-- Ou l'ensemble des morceaux -->
+                <% sequence.tracks.each do |track| %>
+                  <p><strong><%= track.title %></strong>: <%= track.artist %></p>
+                <% end %>
             </div>
           <p><%= image_tag 'transition_sequence.png', class: :sequence_icons %> <%= sequence.transition %></p>
         </div>

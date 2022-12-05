@@ -25,6 +25,7 @@ class SequencesController < ApplicationController
     @sequence.music_session = @music_session
     @sequence.playlist_source_id = 1 # à remplir avec l'api
     if @sequence.save
+      @sequence.shuffle_all_tracks
       redirect_to music_session_path(@music_session)
     else
       render :new

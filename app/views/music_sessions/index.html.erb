@@ -1,23 +1,49 @@
-<div class="container"></div>
-  <h1>Mes sessions</h1>
-    <ul>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Mes sessions</h1>
+      <!--
       <% @music_sessions.each do |music_session| %>
-    <li><%= link_to "#{music_session.name}", music_session %>
-      <%= link_to "Supprimer", music_session_path(music_session), data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer cette session musicale?"}%>
-      <%= link_to 'Editer', edit_music_session_path(music_session)%>
-    </li>
-      <% end %>
-    </ul>
-  <button type="button"  class="btn btn-dark"><%= link_to 'Créer une session', new_music_session_path(@music_session) %></button>
+        <div class="accordion-cards">
+            <%= link_to "#{music_session.name}", music_session %>
+            <p><span class="tag-category">#<%= music_session.category %></span></p>
+            <p><%= image_tag 'duree_session.png', class: :sequence_icons %></p>
+            <%= link_to "Supprimer", music_session_path(music_session), data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer cette session musicale?"}%>
+            <%= link_to 'Editer', edit_music_session_path(music_session) %>
+        </div>
+      <% end %> -->
 
+      <div id="accordionFlushSession">
+        <% @music_sessions.each do |music_session| %>
+        <div class="accordion-cards">
+          <div class="accordion-header" id="flush-heading-<%= "#{music_session.id}" %>">
+            <div class="container">
+              <div class="row">
+                <div class="col-1 m-0 p-0 my-auto">
+                  <%= image_tag 'lecture_session.png' %>
+                </div>
+                <div class="col-10">
+                  <h2><%= link_to "#{music_session.name}", music_session %></h2>
+                  <p><span class="tag-category">#<%= music_session.category %></span> <%= image_tag 'duree_session.png', class: :sequence_icons %><span class=""><b>70 min</b></span></p>
+                </div>
+                <div class="col-1 m-0 p-0 my-auto" data-bs-toggle="collapse" data-bs-target="#flush-collapse-<%= "#{music_session.id}" %>" aria-expanded="false" aria-controls="flush-collapse-<%= "#{music_session.id}" %>">
+                  <%= image_tag 'accordion_session.svg', class: :rotation_icons %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="flush-collapse-<%= "#{music_session.id}" %>" class="accordion-collapse collapse" aria-labelledby="flush-heading-<%= "#{music_session.id}" %>" data-bs-parent="#accordionFlushSession">
+            <div class="accordions-content">
+              <p><%= music_session.description %></p>
+              <%= image_tag 'poubelle.svg', class: :sequence_icons, style: "margin-top: -5px;" %><%= link_to "Supprimer", music_session_path(music_session), data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer cette session musicale?"}%>
+              <%= image_tag 'crayon.svg', class: :sequence_icons, style: "margin-top: -5px;" %><%= link_to 'Editer', edit_music_session_path(music_session) %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
 
-
-
-
-
-
-
-
-
-
+      <button type="button" class="btn btn-dark"><%= link_to 'Créer une session', new_music_session_path(@music_session) %></button>
+    </div>
+  </div>
 </div>

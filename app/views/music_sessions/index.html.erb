@@ -37,6 +37,7 @@
               <p><%= music_session.description %></p>
               <%= image_tag 'poubelle.svg', class: :sequence_icons, style: "margin-top: -5px;" %><%= link_to "Supprimer", music_session_path(music_session), data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer cette session musicale?"}%>
               <%= image_tag 'crayon.svg', class: :sequence_icons, style: "margin-top: -5px;" %><%= link_to 'Editer', edit_music_session_path(music_session) %>
+              <%= image_tag 'cta_dupliquer.svg', class: :sequence_icons, style: "margin-top: -5px;" %><%= link_to "Dupliquer", duplicate_music_session_path(music_session), data: {turbo_method: :post, turbo_confirm: "Etes vous sur de vouloir dupliquer cette session musicale?"}%>
             </div>
           </div>
         </div>

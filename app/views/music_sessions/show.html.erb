@@ -46,8 +46,8 @@
               </div>
             <p><%= image_tag 'transition_sequence.png', class: :sequence_icons %> <%= sequence.transition %></p>
             <div class="buttons-navigation">
-            <%= link_to '', music_sessions_path(@music_session), class: :btn_modifier_sequence, style: "background:url(#{image_path 'cta_modifier_sequence.svg'})" %>
-            <%= link_to '', music_sessions_path(@music_session), class: :btn_supprimer_sequence, style: "background:url(#{image_path 'cta_supprimer_sequence.svg'})" %>
+            <%# <%= link_to '', music_session_sequences_path(@music_session), class: :btn_modifier_sequence, style: "background:url(#{image_path 'cta_modifier_sequence.svg'})", data: {turbo_method: :edit} %>
+            <%= link_to '', sequence_path(sequence), class: :btn_supprimer_sequence, style: "background:url(#{image_path 'cta_supprimer_sequence.svg'})", data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer cette séquence?"} %>
             </div>
           </div>
         <% end %>
@@ -69,7 +69,7 @@
       <% else %>
           <button type="button" class="d-none btn btn-dark">Jouer ma session</button>
       <% end %>
-      <%= link_to 'Mes sessions', music_sessions_path(@music_session), class: :btn_home_black, style: "text-decoration:none;" %>
+      <%= link_to 'Valider cette session', music_sessions_path(@music_session), class: :btn_home_black, style: "text-decoration:none;" %>
     </div>
   </div>
 </div>

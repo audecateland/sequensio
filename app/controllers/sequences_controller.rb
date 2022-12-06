@@ -32,16 +32,16 @@ class SequencesController < ApplicationController
     end
   end
 
+  def destroy
+    @sequence = Sequence.find(params[:id])
+    @sequence.destroy
+    redirect_to music_session_path, status: :see_other
+  end
+
   private
 
   def sequence_params
     params.require(:sequence).permit(:name, :duration,
     :playlist_source_name, :transition)
-  end
-
-  def destroy_sequence
-    @sequence = Sequence.find(params[:id])
-    @sequence.destroy
-    redirect_to music_sessions_path, status: :see_other
   end
 end

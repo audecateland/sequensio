@@ -35,14 +35,16 @@
         <% @music_session.sequences.each do |sequence| %>
           <div class="sequence-description">
             <% @number_sequence += 1  %>
-            <%= link_to '', shuffle_track_path(sequence), class: :btn_shuffle_song, style: "background:url(#{image_path 'cta_shuffle_song.svg'})", data: {turbo_method: :shuffle, turbo_confirm: "Etes vous sur de vouloir shuffle cette séquence?"} %>
+            <%= link_to '', shuffle_track_path(sequence), class: :btn_shuffle_song, style: "background:url(#{image_path 'cta_shuffle_song.svg'})" %>
             <h2>Séquence <%= @number_sequence %></h2>
             <p><%= image_tag 'titre_sequence.png', class: :sequence_icons %><%= sequence.name %></p>
             <p><%= image_tag 'duree_sequence.png', class: :sequence_icons %> <%= sequence.duration %> min</p>
-            <p><%= image_tag 'playlist_sequence.png', class: :sequence_icons %> <%= sequence.playlist_source_name %></p>
+            <><%= image_tag 'playlist_sequence.png', class: :sequence_icons %> <%= sequence.playlist_source_name %></p>
+
               <div>
                   <% sequence.tracks.each do |track| %>
                     <p><strong><%= track.title %></strong>: <%= track.artist %></p>
+                  <%= link_to '', sequence_shuffle_a_track_path(sequence, track), class: :btn_shuffle_song, style: "background:url(#{image_path 'cta_shuffle_song.svg'})", data: {turbo_method: :shuffle, turbo_confirm: "Etes vous sur de vouloir modifier cette chanson?"} %>
                   <% end %>
               </div>
             <p><%= image_tag 'transition_sequence.png', class: :sequence_icons %> <%= sequence.transition %></p>

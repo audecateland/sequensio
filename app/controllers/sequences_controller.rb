@@ -3,8 +3,17 @@ class SequencesController < ApplicationController
   end
 
   def update
-    raise
+
   end
+
+def shuffle_one
+  @sequence = Sequence.find(params[:sequence_id])
+
+  @sequence.shuffle_a_track(params[:id])
+
+end
+
+
 
   def shuffle
     # on retrouve la sequence concernée

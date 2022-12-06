@@ -46,7 +46,7 @@
               </div>
             <p><%= image_tag 'transition_sequence.png', class: :sequence_icons %> <%= sequence.transition %></p>
             <div class="buttons-navigation">
-            <%# <%= link_to '', music_session_sequences_path(@music_session), class: :btn_modifier_sequence, style: "background:url(#{image_path 'cta_modifier_sequence.svg'})", data: {turbo_method: :edit} %>
+            <%= link_to '', edit_music_session_sequence_path(@music_session, sequence), class: :btn_modifier_sequence, style: "background:url(#{image_path 'cta_modifier_sequence.svg'})" %>    
             <%= link_to '', sequence_path(sequence), class: :btn_supprimer_sequence, style: "background:url(#{image_path 'cta_supprimer_sequence.svg'})", data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer cette séquence?"} %>
             </div>
           </div>

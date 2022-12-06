@@ -4,4 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :music_sessions
+
+  def spotify_playlists
+    me = RSpotify::User.find(self.spotify_key)
+    me.playlists
+  end
+
 end

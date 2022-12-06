@@ -9,7 +9,7 @@ class SequencesController < ApplicationController
   def shuffle
     # on retrouve la sequence concernée
     @sequence = Sequence.find(params[:id])
-    @sequence.shuffle_all_tracks
+    @sequence.shuffle_all_tracks_for(current_user)
     redirect_to music_session_path(@sequence.music_session)
   end
 
@@ -23,9 +23,10 @@ class SequencesController < ApplicationController
     @sequence = Sequence.new(sequence_params)
     @music_session = MusicSession.find(params[:music_session_id])
     @sequence.music_session = @music_session
-    @sequence.playlist_source_id = 1 # à remplir avec l'api
+    # @sequence.playlist_source_id = 1 # à remplir avec l'api
+    @sequence.playlist_source_id = current_user.spotify_key
     if @sequence.save
-      @sequence.shuffle_all_tracks
+      @sequence.shuffle_all_tracks_for(current_user)
       redirect_to music_session_path(@music_session)
     else
       render :new

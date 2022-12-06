@@ -8,7 +8,7 @@
         <%= simple_form_for [@music_session, @sequence] do |f| %>
           <%= f.input :name, :label => "Nom", placeholder: "Entrer le nom de votre sequence", label_html: { class: 'my_input_label' }, input_html: { class: 'my_input focus-only' } %>
           <%= f.input :duration, :label => "Durée", label_html: { class: 'my_input_label' }, input_html: { class: 'my_input focus-only' } %>
-          <%= f.input :playlist_source_name, :label => "Playlist", collection: Sequence::SELECT_SEQ, as: :select, label_html: { class: 'my_input_label' }, input_html: { class: 'my_select_input focus-only' } %>
+          <%= f.input :playlist_source_name, :label => "Playlist", collection: current_user.spotify_playlists, as: :select, label_html: { class: 'my_input_label' }, input_html: { class: 'my_select_input focus-only' } %>
           <%= f.input :transition, collection: Sequence::SELECT_TRANS, as: :select, label_html: { class: 'my_input_label' }, input_html: { class: 'my_select_input focus-only' } %>
           <%= f.submit "", class: :btn_next, style: "background:url(#{image_path 'cta_next_2.svg'})" %>
         <% end %>

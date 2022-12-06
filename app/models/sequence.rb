@@ -11,8 +11,8 @@ class Sequence < ApplicationRecord
   def shuffle_all_tracks_for(user)
     timecount = 0
 
-    playlist = RSpotify::Playlist.find(self.playlist_source_id, self.playlist_source_name) #pourquoi c'est inversé?
-    tracks = playlist.tracks.map do |track|
+    playlist = RSpotify::Playlist.find(self.playlist_source_id, self.playlist_source_name)
+    spotify_tracks = playlist.tracks.map do |track|
       Track.new(
         title: track.name,
         artist: track.artists.first.name,
@@ -22,9 +22,9 @@ class Sequence < ApplicationRecord
       )
     end
 
-    while timecount < (self.duration * 60000) && tracks.count != tracks.count
+    while timecount < (self.duration * 60000) && self.tracks.count != spotify_tracks.count
       sequence_tracks_ids = self.tracks.map{ |track| track.track_source_id }
-      track = tracks.reject{ |track| sequence_tracks_ids.include?(track.track_source_id)}.sample
+      track = spotify_tracks.reject{ |track| sequence_tracks_ids.include?(track.track_source_id)}.sample
       track.save
       self.tracks << track
       timecount = self.tracks.map(&:duration_track).sum

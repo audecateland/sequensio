@@ -3,7 +3,6 @@ class SequencesController < ApplicationController
   end
 
   def update
-    raise
   end
 
   def shuffle
@@ -14,7 +13,6 @@ class SequencesController < ApplicationController
   end
 
   def new
-    # @playlists = ApiService.new().playlists
     @sequence = Sequence.new
     @music_session = MusicSession.find(params[:music_session_id])
   end
@@ -23,7 +21,6 @@ class SequencesController < ApplicationController
     @sequence = Sequence.new(sequence_params)
     @music_session = MusicSession.find(params[:music_session_id])
     @sequence.music_session = @music_session
-    # @sequence.playlist_source_id = 1 # à remplir avec l'api
     @sequence.playlist_source_id = current_user.spotify_key
     if @sequence.save
       @sequence.shuffle_all_tracks_for(current_user)

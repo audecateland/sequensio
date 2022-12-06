@@ -37,6 +37,12 @@ class SequencesController < ApplicationController
     end
   end
 
+  def destroy
+    @sequence = Sequence.find(params[:id])
+    @sequence.destroy
+    redirect_to music_session_path, status: :see_other
+  end
+
   private
 
   def sequence_params

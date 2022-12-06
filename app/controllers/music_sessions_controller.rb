@@ -1,6 +1,6 @@
 class MusicSessionsController < ApplicationController
   def index
-    @music_sessions = MusicSession.all
+    @music_sessions = MusicSession.where(user: current_user)
   end
 
   def show

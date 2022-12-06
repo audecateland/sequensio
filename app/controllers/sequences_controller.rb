@@ -1,9 +1,14 @@
 class SequencesController < ApplicationController
+
   def edit
+    @sequence = Sequence.find(params[:id])
+    @music_session = MusicSession.find(params[:music_session_id])
   end
 
   def update
-    raise
+    @sequence = Sequence.find(params[:id])
+    @sequence.update(sequence_params)
+    redirect_to music_session_path(@sequence.music_session)
   end
 
   def shuffle

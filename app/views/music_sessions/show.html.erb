@@ -47,7 +47,7 @@
             <p><%= image_tag 'transition_sequence.png', class: :sequence_icons %> <%= sequence.transition %></p>
             <div class="buttons-navigation">
               <%= simple_form_for [@music_session, sequence] do |f| %>
-                <%= f.submit "", class: :btn_modifier_sequence, style: "background:url(#{image_path 'cta_modifier_sequence.svg'})" %>
+               <%= link_to '', edit_music_session_sequence_path(@music_session, sequence), class: :btn_modifier_sequence, style: "background:url(#{image_path 'cta_modifier_sequence.svg'})" %>
                 <%= f.submit "", class: :btn_supprimer_sequence, style: "background:url(#{image_path 'cta_supprimer_sequence.svg'})" %>
               <% end %>
             </div>

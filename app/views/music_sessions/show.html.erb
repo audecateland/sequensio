@@ -35,7 +35,7 @@
         <% @music_session.sequences.each do |sequence| %>
           <div class="sequence-description">
             <% @number_sequence += 1  %>
-            <%= link_to '', sequence_path(sequence), class: :btn_shuffle_song, style: "background:url(#{image_path 'cta_shuffle_song.svg'})" %>
+            <%= link_to '', shuffle_track_path(sequence), class: :btn_shuffle_song, style: "background:url(#{image_path 'cta_shuffle_song.svg'})", data: {turbo_method: :shuffle, turbo_confirm: "Etes vous sur de vouloir shuffle cette séquence?"} %>
             <h2>Séquence <%= @number_sequence %></h2>
             <p><%= image_tag 'titre_sequence.png', class: :sequence_icons %><%= sequence.name %></p>
             <p><%= image_tag 'duree_sequence.png', class: :sequence_icons %> <%= sequence.duration %> min</p>

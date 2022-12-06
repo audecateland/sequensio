@@ -35,3 +35,14 @@ text-decoration: none;
   }
 
 }
+
+#main-navbar {
+  height: 15vh;
+
+  > section {
+    width: 33%;
+  }
+  > section:last-of-type {
+    text-align: right;
+  }
+}

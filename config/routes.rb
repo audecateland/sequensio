@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :music_sessions, only: [:new, :create, :destroy, :index, :show, :edit, :update] do
     resources :sequences, only: [:edit, :update, :new, :create, :shuffle]
   end
+  resources :sequences, only: :destroy
   resources :tracks, only: [:update, :index]
 end

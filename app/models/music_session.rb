@@ -6,10 +6,17 @@ class MusicSession < ApplicationRecord
   validates :name, uniqueness: { scope: :user_id }
   validates :category, presence: true
 
-  def play
-    playlist = spotify_user.create_playlist!(music_session.name)
-    music_session.sequences.each do |sequence|
-      playlist.add_tracks!(sequence.track.id)
-    end
-  end
+  #def create_playlist
+    # RSpotify::authenticate(ENV['RSPOTIFY_CLIENT_ID'], ENV['RSPOTIFY_CLIENT_SECRET'])
+    # me = RSpotify::User.new(request.env['omniauth.auth'])
+    #me = RSpotify::User.find(self.user.uid)
+    #me.create_playlist!(self.name)
+    #tracks = []
+    #self.sequences.each do |sequence|
+      #tracks << sequence.tracks
+    #end
+    #playlist.add_tracks!(tracks)
+
+  #end
+
 end

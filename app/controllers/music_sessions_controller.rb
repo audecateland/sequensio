@@ -5,6 +5,9 @@ class MusicSessionsController < ApplicationController
 
   def show
     @music_session = MusicSession.find(params[:id])
+    #unless @music_session.sequences.empty?
+      #@music_session.create_playlist
+    #end
   end
 
   def new

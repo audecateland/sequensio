@@ -6,6 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module Sequensio
   class Application < Rails::Application
     config.generators do |generate|
@@ -17,6 +18,7 @@ module Sequensio
     config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
+    RSpotify::authenticate(ENV['RSPOTIFY_CLIENT_ID'], ENV['RSPOTIFY_CLIENT_SECRET'])
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.

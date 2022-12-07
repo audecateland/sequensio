@@ -25,7 +25,6 @@ end
   end
 
   def new
-    # @playlists = ApiService.new().playlists
     @sequence = Sequence.new
     @music_session = MusicSession.find(params[:music_session_id])
   end
@@ -34,9 +33,9 @@ end
     @sequence = Sequence.new(sequence_params)
     @music_session = MusicSession.find(params[:music_session_id])
     @sequence.music_session = @music_session
-    @sequence.playlist_source_id = 1 # à remplir avec l'api
+    @sequence.playlist_source_id = current_user.uid
     if @sequence.save
-      @sequence.shuffle_all_tracks
+      @sequence.shuffle_all_tracks_for(current_user)
       redirect_to music_session_path(@music_session)
     else
       render :new

@@ -1,11 +1,30 @@
+require "debug"
+
 class Sequence < ApplicationRecord
-  SELECT_SEQ = %w[running tempo calme hot]
   SELECT_TRANS = %w[Ding Dong]
   belongs_to :music_session
   has_many :tracks, dependent: :destroy
   validates :name, presence: true
   validates :duration, presence: true
   validates :playlist_source_id, presence: true
+
+  def shuffle_all_tracks_for(user)
+    timecount = 0
+
+    playlist = RSpotify::Playlist.find(self.playlist_source_id, self.playlist_source_name)
+    spotify_tracks = playlist.tracks.map do |track|
+      Track.new(
+        title: track.name,
+        artist: track.artists.first.name,
+        duration_track: track.duration_ms,
+        track_source_id: track.id,
+        sequence: self
+      )
+    end
+
+    while timecount < (self.duration * 60000) && self.tracks.count != spotify_tracks.count
+      sequence_tracks_ids = self.tracks.map{ |track| track.track_source_id }
+      track = spotify_tracks.reject{ |track| sequence_tracks_ids.include?(track.track_source_id)}.sample
 
 def shuffle_a_track(track_id)
   timecount = 0
@@ -61,14 +80,7 @@ end
       track.sequence = self
       track.save
       self.tracks << track
-      # timecount += track.duration_track
       timecount = self.tracks.map(&:duration_track).sum
-      p "#{timecount} : #{self.duration * 60000}"
     end
-    # on va chercher une track et on initialise le timecount
-    # tant qu'il est inférieur au temps indiqué par user, il va chercher d'autres tracks
-    # On shuffle tous les tracks
-    # on retourne une nouvelle liste de tracks
-    # alors on sample track
   end
 end

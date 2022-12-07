@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   root to: "music_sessions#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

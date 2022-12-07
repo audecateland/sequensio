@@ -34,6 +34,9 @@
     color: #001219;
     margin-bottom: 20px;
   }
+  p {
+    margin: 20px 0;
+  }
 }
 
 .sequence-footer {
@@ -45,6 +48,7 @@
   margin: 0 8px;
 }
 
-.sequence-drag-song {
+.sequence_drag_song {
   height: 10vh;
-  width: 10vh;}
+  width: 10vh;
+}

@@ -69,10 +69,11 @@
 }
 
 .btn_shuffle_song {
-  position: absolute;
-  right: 52%;
-  margin: 5px auto 0 auto;
+  display: block;
+  margin: 0;
+  padding: 0;
   border: none;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
+  // background-repeat: no-repeat;
 }

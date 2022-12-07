@@ -11,6 +11,9 @@ class MusicSessionsController < ApplicationController
     @music_session = MusicSession.new
   end
 
+  def player
+  end
+
   def create
     @music_session = MusicSession.new(music_session_params)
     @music_session.user = current_user

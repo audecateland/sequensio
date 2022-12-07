@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-10">
                   <h2><%= link_to "#{music_session.name}", music_session %></h2>
-                  <p><span class="tag-category">#<%= music_session.category %></span> <%= image_tag 'duree_session.png', class: :sequence_icons %><span class=""><b>70 min</b></span></p>
+                  <p><span class="tag-category">#<%= music_session.category %></span> <%= image_tag 'duree_session.png', class: :sequence_icons %><span class=""><b>x min</b></span></p>
                 </div>
                 <div class="col-1 m-0 p-0 my-auto" data-bs-toggle="collapse" data-bs-target="#flush-collapse-<%= "#{music_session.id}" %>" aria-expanded="false" aria-controls="flush-collapse-<%= "#{music_session.id}" %>">
                   <%= image_tag 'accordion_session.svg', class: :rotation_icons %>

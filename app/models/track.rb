@@ -1,6 +1,5 @@
 class Track < ApplicationRecord
   belongs_to :sequence, optional: true
-
   acts_as_list scope: :sequence
 
   def shuffle_all_tracks

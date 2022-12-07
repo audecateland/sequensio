@@ -33,5 +33,15 @@ text-decoration: none;
   font-size: 18px;
   line-height: 26px;
   }
+}
 
+#main-navbar {
+  height: 15vh;
+
+  > section {
+    width: 33%;
+  }
+  > section:last-of-type {
+    text-align: right;
+  }
 }

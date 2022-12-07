@@ -1,5 +1,5 @@
 class MusicSession < ApplicationRecord
-  SELECT_CATEGORY = %w[Cuisine Sport Travail Calme]
+  # SELECT_CATEGORY = %w[Cuisine Sport Travail Calme]
   belongs_to :user
   has_many :sequences, dependent: :destroy
   has_many :tracks, through: :sequences
@@ -14,7 +14,7 @@ class MusicSession < ApplicationRecord
     end
   end
 
-  def self.search
-    tag = MusicSession.find_by(:category)
-  end
+  # def self.search
+  #   tag = MusicSession.find_by(:category)
+  # end
 end

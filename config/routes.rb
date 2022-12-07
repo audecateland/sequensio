@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   post "/music_sessions/:id/duplicate", to: "music_sessions#duplicate", as: :duplicate_music_session
   get "/tracks/shuffle", to: "sequences#shuffle", as: :shuffle_track
-  post "/music_sessions/search", to: "music_sessions#search", as: :search_music_session
+  # post "/music_sessions/search", to: "music_sessions#search", as: :search_music_session
 
   resources :music_sessions, only: [:new, :create, :destroy, :index, :show, :edit, :update] do
     resources :sequences, only: [:edit, :update, :new, :create]

@@ -50,10 +50,9 @@ class MusicSessionsController < ApplicationController
     redirect_to edit_music_session_path(@new_music_session)
   end
 
-  def search
-    @music_sessions = MusicSession.find(params[category: 'cuisine'])
-
-  end
+  # def search
+  #   @music_sessions = MusicSession.find(params[category: 'cuisine'])
+  # end
 
 
 

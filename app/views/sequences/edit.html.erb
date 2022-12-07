@@ -1,2 +1,19 @@
-<h1>Sequences#edit</h1>
-<p>Find me in app/views/sequences/edit.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 mb-1">
+      <div class="mb-1">
+        <p class="titre-page">Modifier cette séquence</p>
+      </div>
+      <div class="form-content">
+        <%= simple_form_for [@music_session, @sequence] do |f| %>
+          <%= f.input :name, :label => "Nom", placeholder: "Modifier le nom de votre sequence", label_html: { class: 'my_input_label' }, input_html: { class: 'my_input focus-only' } %>
+          <%= f.input :duration, :label => "Durée", label_html: { class: 'my_input_label' }, input_html: { class: 'my_input focus-only' } %>
+          <%= f.input :playlist_source_name, :label => "Playlist", collection: Sequence::SELECT_SEQ, as: :select, label_html: { class: 'my_input_label' }, input_html: { class: 'my_select_input focus-only' } %>
+          <%= f.input :transition, collection: Sequence::SELECT_TRANS, as: :select, label_html: { class: 'my_input_label' }, input_html: { class: 'my_select_input focus-only' } %>
+          <%= f.submit "", class: :btn_next, style: "background:url(#{image_path 'cta_next_2.svg'})" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

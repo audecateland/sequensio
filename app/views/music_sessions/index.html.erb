@@ -12,6 +12,14 @@
             <%= link_to 'Editer', edit_music_session_path(music_session) %>
         </div>
       <% end %> -->
+<%= link_to image_tag('cta_tag.svg'), search_music_session_path(@music_session), data: {turbo_method: :post, turbo_confirm: "Etes vous sur de vouloir supprimer cette session musicale?"}%>
+<%= link_to image_tag('Frame 7.svg'), new_music_session_path(@music_session) %>
+<%= link_to image_tag('Frame 8.svg'), new_music_session_path(@music_session) %>
+<%= link_to image_tag('Frame 9.svg'), new_music_session_path(@music_session) %>
+
+
+
+
 
       <div id="accordionFlushSession">
         <% @music_sessions.each do |music_session| %>

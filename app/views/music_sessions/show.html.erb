@@ -63,6 +63,7 @@
     </div>
   </div>
   <div class="row">
+    <%= link_to 'Valider la session', music_session_path(@music_session), class: :btn_home_black, style: "text-decoration:none;" %>
     <div class="col-12">
       <% if @number_sequence > 0 %>
           <button type="button" class="btn btn-dark">Jouer ma session</button>

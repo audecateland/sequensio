@@ -1,14 +1,26 @@
 class SequencesController < ApplicationController
+
   def edit
+    @sequence = Sequence.find(params[:id])
+    @music_session = MusicSession.find(params[:music_session_id])
   end
 
   def update
   end
 
+def shuffle_one
+  @sequence = Sequence.find(params[:sequence_id])
+
+  @sequence.shuffle_a_track(params[:id])
+
+end
+
+
+
   def shuffle
     # on retrouve la sequence concernée
-    @sequence = Sequence.find(params[:id])
-    @sequence.shuffle_all_tracks_for(current_user)
+    @sequence = Sequence.find(params[:format])
+    @sequence.shuffle_all_tracks
     redirect_to music_session_path(@sequence.music_session)
   end
 
@@ -28,6 +40,12 @@ class SequencesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @sequence = Sequence.find(params[:id])
+    @sequence.destroy
+    redirect_to music_session_path, status: :see_other
   end
 
   private

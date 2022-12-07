@@ -9,8 +9,6 @@ class Sequence < ApplicationRecord
   validates :playlist_source_id, presence: true
 
   def shuffle_all_tracks_for(user)
-    timecount = 0
-
     playlist = RSpotify::Playlist.find(self.playlist_source_id, self.playlist_source_name)
     spotify_tracks = playlist.tracks.map do |track|
       Track.new(
@@ -21,10 +19,12 @@ class Sequence < ApplicationRecord
         sequence: self
       )
     end
-
+    timecount = 0
+    debugger
     while timecount < (self.duration * 60000) && self.tracks.count != spotify_tracks.count
       sequence_tracks_ids = self.tracks.map{ |track| track.track_source_id }
       track = spotify_tracks.reject{ |track| sequence_tracks_ids.include?(track.track_source_id)}.sample
+      timecount = self.tracks.map(&:duration_track).sum
     end
   end
 
@@ -34,7 +34,7 @@ class Sequence < ApplicationRecord
     # api_tracks = ApiService.new().get_tracks(playlist_source_name: self.playlist_source_name)
 
     sequence_tracks_ids = self.tracks.map(&:track_source_id)
-    self.tracks.find_by(id: track_id).update(sequence: nil)
+    self.tracks.find_by(id: track_id).destroy
     while timecount < (self.duration * 60000) && self.tracks.count != Track.all.count
       # p self.tracks.count
       # p Track.all.count
@@ -64,9 +64,7 @@ class Sequence < ApplicationRecord
     timecount = 0
     # tant que il ne dépasse pas le temps indiqué par le user
     # api_tracks = ApiService.new().get_tracks(playlist_source_name: self.playlist_source_name)
-    self.tracks.each do |track|
-      track.update(sequence: nil)
-    end
+    self.tracks.destroy_all
     self.reload
 
     while timecount < (self.duration * 60000) && self.tracks.count != Track.all.count

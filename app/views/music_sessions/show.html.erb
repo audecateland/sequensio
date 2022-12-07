@@ -42,8 +42,8 @@
               <div data-controller="sortable" data-sortable-token-value="<%=session[:_csrf_token]%>">
                   <% sequence.tracks.order(:position).each do |track| %>
                     <div data-track-id="<%= track.id%>" class="d-flex justify-content-between align-items-center">
-                      <p></span><strong><%= track.title %></strong>: <%= track.artist %></p>
-                    <%= image_tag 'crayon.svg', class: :sequence_icons %>
+                      <p><strong><%= track.title %></strong>: <%= track.artist %></p>
+                      <%= image_tag 'drag.svg', class: :sequence_drag_song %>
                     </div>
                   <% end %>
               </div>
@@ -72,7 +72,7 @@
       <% else %>
           <button type="button" class="d-none btn btn-dark">Jouer ma session</button>
       <% end %>
-      <%= link_to 'Valider cette session', music_sessions_path(@music_session), class: :btn_home_black, style: "text-decoration:none;" %>
+      <%= link_to 'Mes sessions', music_sessions_path(@music_session), class: :btn_home_black, style: "text-decoration:none;" %>
     </div>
   </div>
 </div>

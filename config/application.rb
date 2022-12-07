@@ -6,6 +6,8 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# RSpotify::authenticate(ENV['RSPOTIFY_CLIENT_ID'], ENV['RSPOTIFY_CLIENT_SECRET'])
+
 module Sequensio
   class Application < Rails::Application
     config.generators do |generate|

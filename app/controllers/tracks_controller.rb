@@ -4,8 +4,15 @@ class TracksController < ApplicationController
   end
 
   def update
-    @tracks = Track.find(params[:id])
-    @track.update(params[:track])
+    @track = Track.find(params[:id])
+    @track.update(track_params)
+    render json: @track
+  end
+
+  private
+
+  def track_params
+    params.require(:track).permit(:position)
   end
 
   def shuffle

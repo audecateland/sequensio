@@ -6,6 +6,9 @@ class SequencesController < ApplicationController
   end
 
   def update
+    @sequence = Sequence.find(params[:id])
+    @sequence.update(sequence_params)
+    redirect_to music_session_path(@sequence.music_session)
   end
 
 def shuffle_one
@@ -19,7 +22,7 @@ end
 
   def shuffle
     # on retrouve la sequence concernée
-    @sequence = Sequence.find(params[:id])
+    @sequence = Sequence.find(params[:format])
     @sequence.shuffle_all_tracks_for(current_user)
     redirect_to music_session_path(@sequence.music_session)
   end

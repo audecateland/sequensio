@@ -9,7 +9,7 @@
         <%= simple_form_for(@music_session) do |f| %>
           <%= f.input :name, label: "Titre", placeholder: "Entrer le nom de votre session", label_html: { class: 'my_input_label' }, input_html: { class: 'my_input focus-only' } %>
           <%= f.input :description, label: "Description", placeholder: "Donner une description", label_html: { class: 'my_input_label' }, input_html: { class: 'my_input focus-only' } %>
-          <%= f.input :category, label: "Catégorie", :collection => ["Sport", "Cuisine", "Travail", "Promenade"], as: :select, label_html: { class: 'my_input_label' }, input_html: { class: 'my_select_input focus-only' } %>
+          <%= f.input :category, label: "Catégorie", :collection => ["Bricolage", "Cuisine", "Lecture", "Promenade", "Sport", "Travail", "Voyage"], as: :select, label_html: { class: 'my_input_label' }, input_html: { class: 'my_select_input focus-only' } %>
 
           <%= f.submit "", class: :btn_next, style: "background:url(#{image_path 'cta_next_2.svg'})" %>
         <% end %>

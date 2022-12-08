@@ -55,6 +55,7 @@ gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-spotify'
 
 gem "rspotify"
+gem 'rest-client'
 gem "devise"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"

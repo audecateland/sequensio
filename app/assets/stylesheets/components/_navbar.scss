@@ -7,16 +7,29 @@ font-family: "Barlow", sans-serif;
 
 .menu-burger, .menu-burger:active, .menu-burger:focus {
   border: none !important;
+  background-color: #001219;
+}
+
+.navbar-menu-burger {
+  background-image: url(menu_burger.svg);
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
 }
 
 nav {
 background-color: #001219;
-height: 120px;
+//height: 120px;
 font-family: "Barlow", sans-serif;
 text-decoration: none;
 }
 
 .navbar-nav {
+  margin-top: 20px;
   background-color: #001219;
 }
 
@@ -25,21 +38,26 @@ text-decoration: none;
 }
 
 .nav-item {
-  padding: 20px;
+  padding:10px;
   a {
     text-decoration: none;
-  font-family: "barlow", sans-serif;
-  color: #FFFFFF;
-  font-size: 18px;
-  line-height: 26px;
+    font-family: "barlow", sans-serif;
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 26px;
+    transition: all 0.3s ease-out;
+    }
+  a:hover {
+    color: #E9D8A6;
   }
 }
 
 #main-navbar {
-  height: 15vh;
+  //height: 15vh;
+  padding: 30px;
 
   > section {
-    width: 33%;
+    width: 50%;
   }
   > section:last-of-type {
     text-align: right;

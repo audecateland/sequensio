@@ -14,6 +14,9 @@ class MusicSessionsController < ApplicationController
     @music_session = MusicSession.new
   end
 
+  def player
+  end
+
   def create
     @music_session = MusicSession.new(music_session_params)
     @music_session.user = current_user
@@ -52,6 +55,12 @@ class MusicSessionsController < ApplicationController
     @new_music_session.save
     redirect_to edit_music_session_path(@new_music_session)
   end
+
+  # def search
+  #   @music_sessions = MusicSession.find(params[category: 'cuisine'])
+  # end
+
+
 
   private
 

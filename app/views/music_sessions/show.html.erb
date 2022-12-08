@@ -17,39 +17,24 @@
       </div>
     </div>
   </div>
-  <!-- DEBUT : Faire apparaitre si aucune sequence créée -->
-  <div class="row">
-    <div class="col-12">
-      <div class="sequence-header">
-    </div>
-  </div>
-  <!-- FIN  -->
   <!-- DEBUT : Séquence -->
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-12">
       <div class="sequence-content">
         <% @number_sequence = 0 %>
         <% @music_session.sequences.each do |sequence| %>
           <div class="sequence-description">
             <% @number_sequence += 1  %>
-            <%= link_to '', shuffle_track_path(sequence), class: :btn_shuffle_song, style: "background:url(#{image_path 'cta_shuffle_song.svg'})" %>
-            <h2>Séquence <%= @number_sequence %></h2>
-            <p><%= image_tag 'titre_sequence.png', class: :sequence_icons %><%= sequence.name %></p>
-            <p><%= image_tag 'duree_sequence.png', class: :sequence_icons %> <%= sequence.duration %> min</p>
-            <p><%= image_tag 'playlist_sequence.png', class: :sequence_icons %> <%= sequence.spotify_playlist.name %></p>
+            <%= link_to '', shuffle_track_path(sequence), class: :btn_shuffle_all_song, style: "background:url(#{image_path 'shuffle_all.svg'}); margin:0 0 16px 0;" %>
+            <h2>Séquence <%= @number_sequence %> : <b><%= sequence.name %></b></h2>
+            <p><%= image_tag 'duree.svg', class: :sequence_icons %> <%= sequence.duration %> min</p>
+            <p><%= image_tag 'spotify.png', class: :sequence_icons, style: "width:25px;" %> <%= sequence.playlist_source_id %></p>
               <div data-controller="sortable" data-sortable-token-value="<%=session[:_csrf_token]%>">
-                  <% sequence.tracks.order(:position).each do |track| %>
-                    <div data-track-id="<%= track.id%>" class="d-flex justify-content-between align-items-center">
-                      <% if track.image_url %>
-                        <%= image_tag track.image_url %>
-                      <% end %>
-                      <p><strong><%= track.title %></strong>: <%= track.artist %>  </p>
-                      <%= image_tag 'drag.svg', class: :sequence_drag_song %>
-                      <%= link_to '', sequence_shuffle_a_track_path(sequence, track), class: :btn_shuffle_song, style: "background:url(#{image_path 'cta_shuffle_song.svg'})", data: {turbo_method: :shuffle, turbo_confirm: "Etes vous sur de vouloir modifier cette chanson?"} %>
-                    </div>
-                  <% end %>
+                <% sequence.tracks.order(:position).each do |track| %>
+                  <%= render "track", track: track, sequence: sequence %>
+                <% end %>
               </div>
-            <p><%= image_tag 'transition_sequence.png', class: :sequence_icons %> <%= sequence.transition %></p>
+            <p><%= image_tag 'alerte_transition.svg', class: :sequence_icons %> <%= sequence.transition %></p>
             <div class="buttons-navigation">
             <%= link_to '', edit_music_session_sequence_path(@music_session, sequence), class: :btn_modifier_sequence, style: "background:url(#{image_path 'cta_modifier_sequence.svg'})" %>
             <%= link_to '', sequence_path(sequence), class: :btn_supprimer_sequence, style: "background:url(#{image_path 'cta_supprimer_sequence.svg'})", data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer cette séquence?"} %>
@@ -63,19 +48,20 @@
   <div class="row">
     <div class="col-12">
       <div class="sequence-footer">
-        <%= link_to '', new_music_session_sequence_path(@music_session), class: :btn_ajouter, style: "background:url(#{image_path 'cta_ajouter.svg'})" %>
+        <%= link_to '', new_music_session_sequence_path(@music_session), class: :btn_ajouter, style: "background:url(#{image_path 'cta_creer_sequence.svg'})" %>
       </div>
     </div>
   </div>
   <div class="row">
-    <%= link_to 'Valider la session', music_session_path(@music_session), class: :btn_home_black, style: "text-decoration:none;" %>
-    <div class="col-12">
-      <% if @number_sequence > 0 %>
-          <button type="button" class="btn btn-dark">Jouer ma session</button>
-      <% else %>
-          <button type="button" class="d-none btn btn-dark">Jouer ma session</button>
-      <% end %>
-      <%= link_to 'Mes sessions', music_sessions_path(@music_session), class: :btn_home_black, style: "text-decoration:none;" %>
+    <div class="col-12 m-1">
+      <div class="btn_home_black">
+        <%= link_to 'Valider la session', player_path(@music_session) %>
+      </div>
+    </div>
+    <div class="col-12 mb-3">
+      <div class="btn_home_yellow">
+        <%= link_to 'Mes sessions', music_sessions_path(@music_session) %>
+      </div>
     </div>
   </div>
 </div>

@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.btn_home_black {
+.btn_home_black a {
   display: block;
   margin: 0 auto;
   background: #001219;
@@ -16,10 +16,20 @@
   letter-spacing: 1px;
   text-align: center;
   text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+
+}
+.btn_home_black a:hover {
+  background: #001f2b;
+  color: #E9D8A6 !important;
 }
 
-.btn_home_yellow {
+
+.btn_home_yellow a {
   background: #EE9B00;
+  display: block;
+  margin: 0 auto;
   padding: 12px 40px;
   border-bottom: 4px solid #001219;
   border-radius: 12px;
@@ -30,6 +40,14 @@
   letter-spacing: 1px;
   text-align: center;
   text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+
+.btn_home_yellow a:hover {
+  background: #CA6702;
+  color: #FFFFFF !important;
+  border-bottom: 4px solid #000000;
 }
 
 .btn_next {
@@ -68,6 +86,15 @@
   height: 78px;
 }
 
+.btn_shuffle_all_song {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 25px;
+  height: 25px;
+}
+
 .btn_shuffle_song {
   display: block;
   margin: 0;
@@ -75,5 +102,4 @@
   border: none;
   width: 20px;
   height: 20px;
-  // background-repeat: no-repeat;
 }

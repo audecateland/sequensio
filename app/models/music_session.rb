@@ -32,7 +32,7 @@ class MusicSession < ApplicationRecord
   end
 
   def total_tracks_duration
-    tracks.sum(:duration)
+    tracks.map(&:duration_track).sum/60000
   end
 
 

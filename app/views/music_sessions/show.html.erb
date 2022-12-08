@@ -8,11 +8,7 @@
         <p><span class="tag-category">#<%= @music_session.category %></span></p>
         <div class="duree-total-session">
         <!-- Deplacer cette méthode Total Time dans le model afin de pouvoir l'appeler partout -->
-          <% @total_time = 0 %>
-          <% @music_session.sequences.each do |sequence| %>
-            <% @total_time += sequence.duration %>
-          <% end %>
-          <p><%= image_tag 'duree_session.png', class: :sequence_icons %><%= "#{@total_time} min" if @total_time > 0 %></p>
+          <p><%= image_tag 'duree_session.png', class: :sequence_icons %><%= "#{@music_session.total_tracks_duration} min" if @music_session.total_tracks_duration > 0 %></p>
         </div>
       </div>
     </div>

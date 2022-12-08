@@ -2,6 +2,44 @@
   position: relative;
 }
 
+.btn_sign_in_with_spotify {
+  border-radius: 25px;
+  border: none;
+  height: 50px;
+  display: block;
+  margin: 30px auto 0 auto;
+  background: #1ed760;
+  padding: 14px 32px;
+  font-family: "Poppins", sans-serif;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+
+.btn_connexion_black {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  background: #001219 !important;
+  padding: 12px 40px !important;
+  border-bottom: 4px solid #E9D8A6 !important;
+  border-radius: 12px !important;
+  font-family: "barlow", sans-serif !important;
+  color: #FFFFFF !important;
+  font-size: 18px !important;
+  line-height: 22px !important;
+  letter-spacing: 1px !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease-out !important;
+}
+
 .btn_home_black a {
   display: block;
   margin: 0 auto;
@@ -18,13 +56,12 @@
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.3s ease-out;
-
 }
+
 .btn_home_black a:hover {
   background: #001f2b;
   color: #E9D8A6 !important;
 }
-
 
 .btn_home_yellow a {
   background: #EE9B00;

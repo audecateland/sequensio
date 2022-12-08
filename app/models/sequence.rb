@@ -1,5 +1,3 @@
-require "debug"
-
 class Sequence < ApplicationRecord
   SELECT_TRANS = %w[Ding Dong]
   belongs_to :music_session

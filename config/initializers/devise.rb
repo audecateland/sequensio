@@ -273,6 +273,8 @@ Devise.setup do |config|
     playlist-read-private
     user-read-private
     user-read-email
+    playlist-modify-private
+    playlist-modify-public
   ).join(' ')
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.

@@ -51,8 +51,11 @@
         </div>
         <% end %>
       </div>
-      <%= link_to 'Créer une session', new_music_session_path(@music_session), class: :btn_home_black, style: "text-decoration:none;" %>
-
+    </div>
+    <div class="col-12 my-3">
+      <div class="btn_home_black">
+        <%= link_to 'Créer une session', new_music_session_path(@music_session) %>
+      </div>
     </div>
   </div>
 </div>

@@ -9,5 +9,12 @@
 .infos-track {
   p {
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
+}
+
+.thumb-img-spotify {
+  border-radius: 6px;
 }

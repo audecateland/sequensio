@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
   post "/music_sessions/:id/duplicate", to: "music_sessions#duplicate", as: :duplicate_music_session
   get "/music_sessions/:id/player", to: "music_sessions#player", as: :player
   get "/tracks/shuffle", to: "sequences#shuffle", as: :shuffle_track

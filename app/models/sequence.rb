@@ -8,6 +8,10 @@ class Sequence < ApplicationRecord
   validates :duration, presence: true
   validates :playlist_source_id, presence: true
 
+  def spotify_playlist
+    playlist = RSpotify::Playlist.find(self.music_session.user.uid, playlist_source_name)
+  end
+
   def shuffle_all_tracks_for(user)
     timecount = 0
     self.tracks.destroy_all
@@ -18,6 +22,7 @@ class Sequence < ApplicationRecord
         artist: track.artists.first.name,
         duration_track: track.duration_ms,
         track_source_id: track.id,
+        image_url: track.album.images.dig(0, "url"),
         sequence: self
       )
     end

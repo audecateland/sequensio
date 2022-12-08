@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-12">
       <p class="titre-page">Mon Player</p>
-      <iframe src="https://open.spotify.com/embed/playlist/1PjVu192kGpeyUgnAkq1YC?utm_source=generator&theme=0" width="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" class="player"></iframe>
+      <div data-controller="player" data-player-target="tracks" data-player-track-ids-value="<%= @music_session.tracks.map(&:track_source_id) %>">
+      </div>
     </div>
   </div>
 </div>

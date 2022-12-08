@@ -22,6 +22,7 @@ class Sequence < ApplicationRecord
         artist: track.artists.first.name,
         duration_track: track.duration_ms,
         track_source_id: track.id,
+        image_url: track.album.images.dig(0, "url"),
         sequence: self
       )
     end

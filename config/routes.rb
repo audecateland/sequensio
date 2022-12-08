@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   post "/music_sessions/:id/duplicate", to: "music_sessions#duplicate", as: :duplicate_music_session
+  get "/music_sessions/:id/player", to: "music_sessions#player", as: :player
   get "/tracks/shuffle", to: "sequences#shuffle", as: :shuffle_track
   # post "/music_sessions/search", to: "music_sessions#search", as: :search_music_session
 

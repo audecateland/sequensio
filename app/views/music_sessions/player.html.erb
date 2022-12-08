@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <p class="titre-page">Mon Player</p>
-      <div data-controller="player" data-player-target="tracks" data-player-track-ids-value="<%= @music_session.tracks.map(&:track_source_id) %>">
+      <div data-controller="player" data-player-target="tracks" data-player-track-ids-value="<%= @music_session.ordered_track_ids %>">
       </div>
     </div>
   </div>

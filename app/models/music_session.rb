@@ -8,6 +8,16 @@ class MusicSession < ApplicationRecord
   validates :category, presence: true
 
 
+  def ordered_track_ids
+    self.sequences
+        .order(:id)
+        .map { |sequence| sequence.tracks
+                                  .order(:position)
+                                  .map(&:track_source_id)
+              }
+        .flatten
+  end
+
   ########
   # def create_playlist
   #   RSpotify::authenticate(ENV['RSPOTIFY_CLIENT_ID'], ENV['RSPOTIFY_CLIENT_SECRET'])

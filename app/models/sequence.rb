@@ -40,7 +40,10 @@ class Sequence < ApplicationRecord
     # api_tracks = ApiService.new().get_tracks(playlist_source_name: self.playlist_source_name)
 
     # sequence_tracks_ids = self.tracks.map(&:track_source_id)
-    self.tracks.find_by(id: track_id).destroy
+    track_to_shuffle = self.tracks.find_by(id: track_id.to_i)
+    track_position = track_to_shuffle.position
+    deleted_track_duration = track_to_shuffle.duration_track
+    track_to_shuffle.destroy
     playlist = RSpotify::Playlist.find(self.playlist_source_id, self.playlist_source_name)
 
     spotify_tracks = playlist.tracks.map do |track|
@@ -50,11 +53,12 @@ class Sequence < ApplicationRecord
         duration_track: track.duration_ms,
         track_source_id: track.id,
         image_url: track.album.images.dig(0, "url"),
-        sequence: self
+        sequence: self,
+        position: track_position
       )
     end
     sequence_tracks_ids = self.tracks.map{ |track| track.track_source_id }
-    track = spotify_tracks.reject{ |track| sequence_tracks_ids.include?(track.track_source_id)}.sample
+    track = spotify_tracks.reject { |track| sequence_tracks_ids.include?(track.track_source_id) || track.duration_track < 0.9 * deleted_track_duration || track.duration_track > 1.1 * deleted_track_duration }.sample
     track.save
     # while timecount < (self.duration * 60000) && self.tracks.count != Track.all.count
     #   # p self.tracks.count

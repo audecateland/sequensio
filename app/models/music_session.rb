@@ -14,6 +14,10 @@ class MusicSession < ApplicationRecord
     end
   end
 
+  def total_tracks_duration
+    tracks.sum(:duration)
+  end
+
   # def self.search
   #   tag = MusicSession.find_by(:category)
   # end

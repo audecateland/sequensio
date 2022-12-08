@@ -28,7 +28,7 @@
             <%= link_to '', shuffle_track_path(sequence), class: :btn_shuffle_all_song, style: "background:url(#{image_path 'shuffle_all.svg'}); margin:0 0 16px 0;" %>
             <h2>Séquence <%= @number_sequence %> : <b><%= sequence.name %></b></h2>
             <p><%= image_tag 'duree.svg', class: :sequence_icons %> <%= sequence.duration %> min</p>
-            <p><%= image_tag 'spotify.png', class: :sequence_icons, style: "width:25px;" %> <%= sequence.playlist_source_name %></p>
+            <p><%= image_tag 'spotify.png', class: :sequence_icons, style: "width:25px;" %> <%= sequence.playlist_source_id %></p>
               <div data-controller="sortable" data-sortable-token-value="<%=session[:_csrf_token]%>">
                 <% sequence.tracks.order(:position).each do |track| %>
                   <%= render "track", track: track, sequence: sequence %>

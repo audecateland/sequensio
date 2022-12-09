@@ -32,6 +32,18 @@ class Sequence < ApplicationRecord
       self.tracks << track
       timecount = self.tracks.map(&:duration_track).sum
     end
+
+    tr_id = (self.transition == "Ding" ? "17KPaV7VT9m8cV62VhKTmh" : "3OmstcG0k4HR1bDXqGPyrq")
+
+    track = RSpotify::Track.find(tr_id)
+    transition = Track.create(
+      title: track.name,
+      artist: track.artists.first.name,
+      duration_track: track.duration_ms,
+      track_source_id: track.id,
+      image_url: track.album.images.dig(0, "url"),
+      sequence: self
+    )
   end
 
   def shuffle_a_track(track_id)

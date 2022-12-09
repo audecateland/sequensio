@@ -43,9 +43,9 @@
           <div id="flush-collapse-<%= "#{music_session.id}" %>" class="accordion-collapse collapse" aria-labelledby="flush-heading-<%= "#{music_session.id}" %>" data-bs-parent="#accordionFlushSession">
             <div class="accordions-content">
               <p><%= music_session.description %></p>
-              <%= image_tag 'poubelle.svg', class: :sequence_icons, style: "margin-top: -5px;" %><%= link_to "Supprimer", music_session_path(music_session), data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer cette session musicale?"}, class: :survol_lien %>
+              <%= image_tag 'poubelle.svg', class: :sequence_icons, style: "margin-top: -5px;" %><%= link_to "Supprimer", music_session_path(music_session), data: {turbo_method: :delete}, class: :survol_lien %>
               <%= image_tag 'crayon.svg', class: :sequence_icons, style: "margin-top: -5px;" %><%= link_to 'Editer', edit_music_session_path(music_session), class: :survol_lien %>
-              <%= image_tag 'cta_dupliquer.svg', class: :sequence_icons, style: "margin-top: -5px;" %><%= link_to "Dupliquer", duplicate_music_session_path(music_session), data: {turbo_method: :post, turbo_confirm: "Etes vous sur de vouloir dupliquer cette session musicale?"}, class: :survol_lien %>
+              <%= image_tag 'cta_dupliquer.svg', class: :sequence_icons, style: "margin-top: -5px;" %><%= link_to "Dupliquer", duplicate_music_session_path(music_session), data: {turbo_method: :post}, class: :survol_lien %>
             </div>
           </div>
         </div>

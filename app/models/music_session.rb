@@ -7,16 +7,7 @@ class MusicSession < ApplicationRecord
   validates :name, uniqueness: { scope: :user_id }
   validates :category, presence: true
 
-
   def ordered_track_ids
-    # self.sequences
-    #     .order(:id)
-    #     .map { |sequence| sequence.tracks
-    #                               .order(:position)
-    #                               .map(&:track_source_id)
-    #           }
-    #     .flatten
-
     self.sequences.order(:id).map{
         |sequence| [
           sequence.name,
@@ -24,24 +15,7 @@ class MusicSession < ApplicationRecord
                   .order(:position)
                   .map(&:track_source_id)]
         }.to_h
-
   end
-
-  ########
-  # def create_playlist
-  #   RSpotify::authenticate(ENV['RSPOTIFY_CLIENT_ID'], ENV['RSPOTIFY_CLIENT_SECRET'])
-  #   #me = RSpotify::User.new(request.env['omniauth.auth'])
-  #   me = RSpotify::User.find(self.user.uid)
-  #   # debugger
-  #   me.create_playlist!("coco")
-  #   tracks = []
-  #   self.sequences.each do |sequence|
-  #     tracks << sequence.tracks
-  #   end
-  #   playlist.add_tracks!(tracks)
-
-  # end
-  ########
 
   def play
     playlist = spotify_user.create_playlist!(music_session.name)
@@ -53,10 +27,5 @@ class MusicSession < ApplicationRecord
   def total_tracks_duration
     tracks.map(&:duration_track).sum/60000
   end
-
-
-  # def self.search
-  #   tag = MusicSession.find_by(:category)
-  # end
 
 end

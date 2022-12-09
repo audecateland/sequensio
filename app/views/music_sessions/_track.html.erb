@@ -9,7 +9,10 @@
       <div class="col-7 align-self-center infos-track">
         <p><b><%= track.title %></b></p>
         <p><%= track.artist %></p>
+         <%= link_to '', sequence_shuffle_a_track_path(sequence, track), class: :btn_shuffle_song, style: "background:url(#{image_path 'cta_shuffle_song.svg'})", data: {turbo_method: :shuffle, turbo_confirm: "Etes vous sur de vouloir modifier cette chanson?"} %>
       </div>
+      <%# <div class="col-2 align-self-center p-0 m-0.25"> %>
+      <%# </div> %>
       <div class="col-2 align-self-center">
         <%= image_tag 'drag_and_drop.png' %>
       </div>

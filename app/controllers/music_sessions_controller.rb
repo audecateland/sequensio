@@ -15,6 +15,7 @@ class MusicSessionsController < ApplicationController
   end
 
   def player
+    @music_session = MusicSession.find(params[:id])
   end
 
   def create

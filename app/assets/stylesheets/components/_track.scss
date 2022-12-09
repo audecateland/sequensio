@@ -1,6 +1,6 @@
 .track-content {
   padding: 8px;
-  background: #FBFBFB;
+  background: #e7e7e7;
   border-radius: 8px;
   margin-bottom: 4px;
   border-left:  #EE9B00;
@@ -9,5 +9,12 @@
 .infos-track {
   p {
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
+}
+
+.thumb-img-spotify {
+  border-radius: 6px;
 }

@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Sequensio</title>
+    <%= favicon_link_tag asset_path('my_icon.ico') %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,12 +16,14 @@
 
   <body>
     <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <!-- <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p> -->
-    <div class="pt-5"></div>
-    <div class="pt-5"></div>
-
-    <%= yield %>
+      <div style="min-height: 88vh;">
+        <%= render "shared/flashes" %>
+        <!-- <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p> -->
+        <div class="pt-5"></div>
+        <div class="pt-5"></div>
+        <%= yield %>
+      </div>
+    <%= render "shared/footer" %>
   </body>
 </html>

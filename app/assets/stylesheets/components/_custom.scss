@@ -39,7 +39,7 @@
     font-size: 16px;
     line-height: 26px;
     font-weight: 500;
-    font-family: "barlox", sans-serif;
+    font-family: "barlow", sans-serif;
     color: #001219;
     transition: all 0.3s ease-out;
     color: #001219;
@@ -47,4 +47,8 @@
   a:hover {
     color: #EE9B00;
   }
+}
+
+.player {
+  height: 60vh;
 }

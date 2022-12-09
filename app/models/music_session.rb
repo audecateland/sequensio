@@ -7,6 +7,16 @@ class MusicSession < ApplicationRecord
   validates :name, uniqueness: { scope: :user_id }
   validates :category, presence: true
 
+  def ordered_track_ids
+    self.sequences.order(:id).map{
+        |sequence| [
+          sequence.name,
+          sequence.tracks
+                  .order(:position)
+                  .map(&:track_source_id)]
+        }.to_h
+  end
+
   def play
     playlist = spotify_user.create_playlist!(music_session.name)
     music_session.sequences.each do |sequence|
@@ -15,7 +25,7 @@ class MusicSession < ApplicationRecord
   end
 
   def total_tracks_duration
-    tracks.sum(:duration)
+    tracks.map(&:duration_track).sum/60000
   end
 
 end

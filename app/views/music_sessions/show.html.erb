@@ -8,11 +8,7 @@
         <p><span class="tag-category">#<%= @music_session.category %></span></p>
         <div class="duree-total-session">
         <!-- Deplacer cette méthode Total Time dans le model afin de pouvoir l'appeler partout -->
-          <% @total_time = 0 %>
-          <% @music_session.sequences.each do |sequence| %>
-            <% @total_time += sequence.duration %>
-          <% end %>
-          <p><%= image_tag 'duree_session.png', class: :sequence_icons %><%= "#{@total_time} min" if @total_time > 0 %></p>
+          <p><%= image_tag 'duree_session.png', class: :sequence_icons %><%= "#{@music_session.total_tracks_duration} min" if @music_session.total_tracks_duration > 0 %></p>
         </div>
       </div>
     </div>
@@ -28,7 +24,7 @@
             <%= link_to '', shuffle_track_path(sequence), class: :btn_shuffle_all_song, style: "background:url(#{image_path 'shuffle_all.svg'}); margin:0 0 16px 0;" %>
             <h2>Séquence <%= @number_sequence %> : <b><%= sequence.name %></b></h2>
             <p><%= image_tag 'duree.svg', class: :sequence_icons %> <%= sequence.duration %> min</p>
-            <p><%= image_tag 'spotify.png', class: :sequence_icons, style: "width:25px;" %> <%= sequence.playlist_source_id %></p>
+            <p><%= image_tag 'spotify.png', class: :sequence_icons, style: "width:25px;" %> <%= sequence.spotify_playlist.name %></p>
               <div data-controller="sortable" data-sortable-token-value="<%=session[:_csrf_token]%>">
                 <% sequence.tracks.order(:position).each do |track| %>
                   <%= render "track", track: track, sequence: sequence %>
@@ -53,7 +49,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 m-1">
+    <div class="col-12 mb-2">
       <div class="btn_home_black">
         <%= link_to 'Valider la session', player_path(@music_session) %>
       </div>

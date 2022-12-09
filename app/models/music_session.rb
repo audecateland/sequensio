@@ -9,13 +9,22 @@ class MusicSession < ApplicationRecord
 
 
   def ordered_track_ids
-    self.sequences
-        .order(:id)
-        .map { |sequence| sequence.tracks
-                                  .order(:position)
-                                  .map(&:track_source_id)
-              }
-        .flatten
+    # self.sequences
+    #     .order(:id)
+    #     .map { |sequence| sequence.tracks
+    #                               .order(:position)
+    #                               .map(&:track_source_id)
+    #           }
+    #     .flatten
+
+    self.sequences.order(:id).map{
+        |sequence| [
+          sequence.name,
+          sequence.tracks
+                  .order(:position)
+                  .map(&:track_source_id)]
+        }.to_h
+
   end
 
   ########

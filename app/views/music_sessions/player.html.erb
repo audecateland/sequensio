@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-12">
       <p class="titre-page">Mon player</p>
-      <p class="titre-page"><%= @music_session.name.capitalize %></p>
-      <div data-controller="player" data-player-target="tracks" data-player-track-ids-value="<%= @music_session.ordered_track_ids.to_json %>">
+      <h2 class="titre-page"><%= @music_session.name.capitalize %></h2>
+      <div class="session-description" data-controller="player" data-player-target="tracks" data-player-track-ids-value="<%= @music_session.ordered_track_ids.to_json %>">
       </div>
     </div>
   </div>

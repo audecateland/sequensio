@@ -13,9 +13,8 @@ class SequencesController < ApplicationController
 
 def shuffle_one
   @sequence = Sequence.find(params[:sequence_id])
-
   @sequence.shuffle_a_track(params[:id])
-
+  redirect_to music_session_path(@sequence.music_session)
 end
 
 

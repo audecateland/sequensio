@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <p class="titre-page">CREER UNE SESSION</p>
+      <p class="titre-page text-uppercase">créer une session</p>
       <div class="card-description">
         <h1>Session <%= @music_session.name %></h1>
         <p class="session-description"><%= @music_session.description %></p>
@@ -33,7 +33,7 @@
             <p><%= image_tag 'alerte_transition.svg', class: :sequence_icons %> <%= sequence.transition %></p>
             <div class="buttons-navigation">
             <%= link_to '', edit_music_session_sequence_path(@music_session, sequence), class: :btn_modifier_sequence, style: "background:url(#{image_path 'cta_modifier_sequence.svg'})" %>
-            <%= link_to '', sequence_path(sequence), class: :btn_supprimer_sequence, style: "background:url(#{image_path 'cta_supprimer_sequence.svg'})", data: {turbo_method: :delete, turbo_confirm: "Etes vous sur de vouloir supprimer cette séquence?"} %>
+            <%= link_to '', sequence_path(sequence), class: :btn_supprimer_sequence, style: "background:url(#{image_path 'cta_supprimer_sequence.svg'})", data: {turbo_method: :delete} %>
             </div>
           </div>
         <% end %>

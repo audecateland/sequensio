@@ -35,7 +35,7 @@ end
     @sequence = Sequence.new(sequence_params)
     @music_session = MusicSession.find(params[:music_session_id])
     @sequence.music_session = @music_session
-    @sequence.playlist_source_id = current_user.uid
+    @sequence.playlist_source_id = current_user.spotify_key
     if @sequence.save
       @sequence.shuffle_all_tracks_for(current_user)
       redirect_to music_session_path(@music_session)

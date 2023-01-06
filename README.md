@@ -10,6 +10,9 @@ You can open the app in production here: https://www.sequensio.me (Best to see i
 Please note that this app is submitted to Spotify dev freemium limitation of restricted user before our project gets further approval. Please contact us if you'd like to be granted access.
 
 Here is a presentation of the app :
+<br>
+https://user-images.githubusercontent.com/115459416/211087364-140cb020-63bb-420a-a789-23de28894d91.mov
+
 
 <h2> Main Features </h2>
 <br>
@@ -24,17 +27,23 @@ Here is a presentation of the app :
 <h2> Screenshots </h2>
 <br>
 <h4>Connect to Spotify<h4>
-<img width="300" alt="Connect to Spotify" src="https://user-images.githubusercontent.com/104831958/210985771-4f261a6f-d24e-4f2b-b544-d3ff596c6d62.png">
+<img width="300" alt="Connect to Spotify" src="https://user-images.githubusercontent.com/115459416/211086086-539a8c8d-7cd5-48d0-af8a-fbef340823d1.png">
 
-<h4>Create a Music Session with Sequences<h4>
-<img width="300" alt="Create a Music Session with Sequences" src="https://user-images.githubusercontent.com/104831958/210985988-ea57cb31-3117-42c7-aae3-cbb3dffe01c6.png">
+<h4>Homepage<h4>
+<img width="300" alt="Create a Music Session with Sequences" src="https://user-images.githubusercontent.com/115459416/211085698-a6bb0515-dfc3-42c4-9444-209e65e06d1b.png">
 
-<h4>Shuffle tracks or entire sequence if you want<h4>
-<img width="300" alt="Shuffle tracks or entire sequence if you want" src="https://user-images.githubusercontent.com/104831958/210986174-4d8ba167-0b63-465a-8bb0-bc9e9b464fb4.png">
+<h4>Create a new playlist with Sequences<h4>
+<img width="300" alt="Create a Music Session with Sequences" src="https://user-images.githubusercontent.com/115459416/211086160-85e150e1-dd4a-483f-a674-f551265f15f1.png">
+  
+<h4>Parameter & select songs source from your Spotify account's playlists<h4>  
+<img width="264" alt="Select songs source from your Spotify playlists" src="https://user-images.githubusercontent.com/115459416/211087136-f37b5db3-ba66-4d54-95f9-1bd7a1ca4507.png">
+
+<h4>Shuffle tracks or entire sequence and modify tracks order with drag and drop if you want<h4>
+<img width="300" alt="Shuffle tracks or entire sequence if you want" src="https://user-images.githubusercontent.com/115459416/211086261-76e3376b-a1db-4ad0-adc6-eabaf90f8206.png">
 
 <h4>Play your Music Session<h4>
-<img width="300" alt="Play your Music Session" src="https://user-images.githubusercontent.com/104831958/210986380-ba6b7a6b-5fd5-4feb-8a9b-db30a3da7cff.png">
-  
+<img width="300" alt="Play your Music Session" src="https://user-images.githubusercontent.com/115459416/211086324-8cab9ce2-fa9c-4c54-9420-282ffe827921.png">
+
 <h2> Getting starting in local </h2>
   
 <h3>Setup</h3> 

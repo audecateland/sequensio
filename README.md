@@ -36,7 +36,7 @@ https://user-images.githubusercontent.com/115459416/211087364-140cb020-63bb-420a
 <img width="300" alt="Create a Music Session with Sequences" src="https://user-images.githubusercontent.com/115459416/211086160-85e150e1-dd4a-483f-a674-f551265f15f1.png">
   
 <h4>Parameter & select songs source from your Spotify account's playlists<h4>  
-<img width="264" alt="Select songs source from your Spotify playlists" src="https://user-images.githubusercontent.com/115459416/211087136-f37b5db3-ba66-4d54-95f9-1bd7a1ca4507.png">
+<img width="300" alt="Select songs source from your Spotify playlists" src="https://user-images.githubusercontent.com/115459416/211087136-f37b5db3-ba66-4d54-95f9-1bd7a1ca4507.png">
 
 <h4>Shuffle tracks or entire sequence and modify tracks order with drag and drop if you want<h4>
 <img width="300" alt="Shuffle tracks or entire sequence if you want" src="https://user-images.githubusercontent.com/115459416/211086261-76e3376b-a1db-4ad0-adc6-eabaf90f8206.png">

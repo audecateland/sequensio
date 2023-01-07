@@ -18,7 +18,8 @@ https://user-images.githubusercontent.com/115459416/211087364-140cb020-63bb-420a
 <br>
 <ul>
   <li>OmniAuth with Spotify</li>
-  <li>Select songs source from users'Spotify playlists both public and private (with Spotify dev API)</li>
+  <li><a href="https://github.com/guilhermesad/rspotify" target="_blank">RSpotify</a> Gem</li>
+  <li>Select songs source from users' Spotify playlists both public and private (with Spotify dev API)</li>
   <li>Display songs details and image (with Spotify dev API)</li>
   <li>Drag and drop animation with Javascript</li>
   <li>Display final playlist with songs ready to push play (with Spotify dev API)</li>

@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :music_sessions
 
   def spotify_playlists
-    me = RSpotify::User.find(self.uid)
+    me = RSpotify::User.find(self.spotify_key)
     me.playlists
   end
 
